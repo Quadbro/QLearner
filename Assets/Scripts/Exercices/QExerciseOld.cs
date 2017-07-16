@@ -3,41 +3,31 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 
-[Serializable]
-public class QWindowData {
-    public string languageHeaderKey;
-    public bool hasButton;
 
-    public QWindowData(string languageHeaderKey) {
-        this.languageHeaderKey = languageHeaderKey;
+
+public abstract class QExerciseOld : QMonoBehaviour{
+    public static List<QExerciseOld> Instances {
+        get { return _instances; }
     }
-}
 
-public abstract class QWindow : QMonoBehaviour {
+
+    public RectTransform RectTransform {
+        get { return _rectTransform; }
+    }
+
+    private static List<QExerciseOld> _instances = new List<QExerciseOld>();
 
     public event Action OnActivateEvent;
     public event Action OnDeactivateEvent;
 
-    /*public List<QWindow> Windows {
-        get { return _windows; }
-    }*/
-
-    public QWindowGroup WindowGroup {
-        get { return _windowGroup; }
-        set { _windowGroup = value; }
-    }
-
-    public QWindowData data;
-    public GameObject container;
-
-    //private List<QWindow> _windows = new List<QWindow>();
-
-
-
     protected RectTransform _rectTransform;
-    protected QWindowGroup _windowGroup;
+
+    public GameObject container;
+    public string key;
 
     protected override void OnAwake() {
+        _instances.Add(this);
+
         _rectTransform = gameObject.GetRequiredComponent<RectTransform>();
 
         _rectTransform.offsetMin = new Vector2(0, 0);
@@ -45,7 +35,12 @@ public abstract class QWindow : QMonoBehaviour {
     }
 
     public void Activate() {
-        _windowGroup.Activate(this);
+        foreach (var ex in _instances) {
+            ex.Deactivate();
+        }
+
+        QManager_Window.Instance.appHeader.Key = key;
+        gameObject.SetActive(true);
 
         OnActivate();
 

@@ -1,0 +1,68 @@
+{
+    "items": [
+        {
+            "key": "ex_name_listening",
+            "value": "Аудирование"
+        },
+        {
+            "key": "ex_name_brainstorm",
+            "value": "Мозговой штурм"
+        },
+        {
+            "key": "ex_name_crossword",
+            "value": "Кроссворд"
+        },
+        {
+            "key": "ex_name_sprint",
+            "value": "Спринт"
+        },
+        {
+            "key": "ex_name_constructor",
+            "value": "Конструктор"
+        },
+        {
+            "key": "ex_name_wordcards",
+            "value": "Карточки"
+        },
+        {
+            "key": "ex_name_wordtranslation",
+            "value": "Слово Перевод"
+        },
+        {
+            "key": "ex_name_translationword",
+            "value": "Перевод Слово"
+        },
+        {
+            "key": "home_name_translator",
+            "value": "Переводчик"
+        },
+        {
+            "key": "home_name_exercises",
+            "value": "Упражнения"
+        },
+        {
+            "key": "home_name_dictionary",
+            "value": "Словарь"
+        },
+        {
+            "key": "home_name_web",
+            "value": "Интернет"
+        },
+        {
+            "key": "home_name_settings",
+            "value": "Настройки"
+        },
+        {
+            "key": "home_name_exit",
+            "value": "Выход"
+        },
+        {
+            "key": "home_name_user",
+            "value": "Аккаунт"
+        },
+        {
+            "key": "home_name_home",
+            "value": "Главная"
+        }
+    ]
+}

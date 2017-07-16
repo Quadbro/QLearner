@@ -1,16 +1,16 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class QManager_Prefab : QManager<QManager_Prefab> {
 
-    public GameObject prefab_Window_Home;
-    public GameObject prefab_Window_Exercises;
-    public GameObject prefab_Window_Dictionary;
-    public GameObject prefab_Window_Translator;
-    public GameObject prefab_Window_Settings;
-    public GameObject prefab_Window_Web;
-    public GameObject prefab_Window_User;
+    [Header("Windows")]
+    public List<GameObject> prefab_Windows_Main;
 
+    [Header("Ecercises")]
+    public List<GameObject> prefab_Exercises;
+
+    [Header("Buttons")]
     public GameObject prefab_Button_HomeItem;
     public GameObject prefab_Button_ExerciseItem;
 

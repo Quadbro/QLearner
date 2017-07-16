@@ -16,9 +16,18 @@ public class QWindow_Home : QWindow {
         _buttons = new List<QButton>();
 
         container.ClearAllChildren();
+
+        foreach (var window in _windowGroup.windows) {
+            if (window.data.hasButton) {
+                AddButton(new QButtonData(window));
+            }
+        }
+
+        AddButton(new QButtonData("home_name_exit", Application.Quit));
     }
 
     protected override void OnStart() {
+        Activate();
     }
 
     protected override void OnUpdate() {

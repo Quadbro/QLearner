@@ -1,0 +1,68 @@
+{
+    "items": [
+        {
+            "key": "ex_name_listening",
+            "value": "Listening"
+        },
+        {
+            "key": "ex_name_brainstorm",
+            "value": "Brainstorm"
+        },
+        {
+            "key": "ex_name_crossword",
+            "value": "Crossword"
+        },
+        {
+            "key": "ex_name_sprint",
+            "value": "Sprint"
+        },
+        {
+            "key": "ex_name_constructor",
+            "value": "Constructor"
+        },
+        {
+            "key": "ex_name_wordcards",
+            "value": "Word Cards"
+        },
+        {
+            "key": "ex_name_wordtranslation",
+            "value": "Word Translation"
+        },
+        {
+            "key": "ex_name_translationword",
+            "value": "Translation Word"
+        },
+        {
+            "key": "home_name_translator",
+            "value": "Translator"
+        },
+        {
+            "key": "home_name_exercises",
+            "value": "Exercises"
+        },
+        {
+            "key": "home_name_dictionary",
+            "value": "Dictionary"
+        },
+        {
+            "key": "home_name_web",
+            "value": "Web"
+        },
+        {
+            "key": "home_name_settings",
+            "value": "Settings"
+        },
+        {
+            "key": "home_name_exit",
+            "value": "Exit"
+        },
+        {
+            "key": "home_name_user",
+            "value": "Account"
+        },
+        {
+            "key": "home_name_home",
+            "value": "Home"
+        }
+    ]
+}

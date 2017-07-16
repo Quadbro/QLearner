@@ -16,9 +16,15 @@ public class QApp : QSingleton<QApp> {
 
     private void Update () {
         OnUpdate();
+
+        if (Input.GetKeyDown(KeyCode.Alpha1)) {
+            QManager_Localization.Instance.Language = QManager_Localization.Instance.Language == Language.en ? Language.ru : Language.en;
+        }
     }
 
     protected override void OnAwake() {
+        QManager_Localization.Instance.AwakeCycle();
+
         QManager_Window.Instance.AwakeCycle();
         QManager_Prefab.Instance.AwakeCycle();
     }

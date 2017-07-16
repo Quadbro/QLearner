@@ -5,12 +5,17 @@ using UnityEngine.UI;
 
 [System.Serializable]
 public class QButtonData {
-    public string text;
+    public string key;
     public Action action;
 
-    public QButtonData(string text, Action action) {
-        this.text = text;
+    public QButtonData(string key, Action action) {
+        this.key = key;
         this.action = action;
+    }
+
+    public QButtonData(QWindow window) {
+        this.key = window.data.languageHeaderKey;
+        this.action = window.Activate;
     }
 }
 
@@ -18,16 +23,16 @@ public class QButtonData {
 public class QButton : MonoBehaviour {
 
     private Button _btn;
-    private Text _text;
+    private QLocalizedText _text;
     private QButtonData _data;
 
 
     public void Initialize(QButtonData data) {
         _btn = gameObject.GetRequiredComponentInChildren<Button>();
-        _text = gameObject.GetRequiredComponentInChildren<Text>();
+        _text = gameObject.GetRequiredComponentInChildren<QLocalizedText>();
         _data = data;
 
         _btn.onClick.AddListener(() => _data.action());
-        _text.text = _data.text;
+        _text.Key = _data.key;
     }
 }
