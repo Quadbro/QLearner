@@ -19,16 +19,16 @@ public class QApp : QSingleton<QApp> {
     }
 
     protected override void OnAwake() {
-        QManagerWindow.Instance.AwakeCycle();
-        QManagerPrefab.Instance.AwakeCycle();
+        QManager_Window.Instance.AwakeCycle();
+        QManager_Prefab.Instance.AwakeCycle();
     }
 
     protected override void OnStart() {
-        QManagerWindow.Instance.StartCycle();
-        QManagerPrefab.Instance.StartCycle();
+        QManager_Window.Instance.StartCycle();
+        QManager_Prefab.Instance.StartCycle();
     }
 
     protected override void OnUpdate() {
-        QManagerWindow.Instance.UpdateCycle();
+        QManager_Window.Instance.UpdateCycle();
     }
 }

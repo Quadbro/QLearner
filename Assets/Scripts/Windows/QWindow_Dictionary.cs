@@ -9,18 +9,14 @@ public class QWindow_Dictionary : QWindow {
     }
 
     protected override void OnStart() {
-        throw new System.NotImplementedException();
     }
 
     protected override void OnUpdate() {
-        throw new System.NotImplementedException();
     }
 
     protected override void OnActivate() {
-        throw new System.NotImplementedException();
     }
 
     protected override void OnDeactivate() {
-        throw new System.NotImplementedException();
     }
 }

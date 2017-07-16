@@ -54,6 +54,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 224337124284841256}
+  - component: {fileID: 114403211255933036}
   m_Layer: 5
   m_Name: ExerciseItem
   m_TagString: Untagged
@@ -61,6 +62,17 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &114403211255933036
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1671068866116698}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0b7dbe6ade393342a91d3626a52ba5f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114712613738450204
 MonoBehaviour:
   m_ObjectHideFlags: 1

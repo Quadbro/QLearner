@@ -14,12 +14,25 @@ public abstract class QWindow : QMonoBehaviour {
     public event Action OnActivateEvent;
     public event Action OnDeactivateEvent;
 
+    protected RectTransform _rectTransform;
+
+    public GameObject container;
 
     protected override void OnAwake() {
         _instances.Add(this);
+
+        _rectTransform = gameObject.GetRequiredComponent<RectTransform>();
+
+        _rectTransform.offsetMin = new Vector2(0, 0);
+        _rectTransform.offsetMax = new Vector2(0, 0);
     }
 
     public void Activate() {
+        foreach (var window in _instances) {
+            window.Deactivate();
+        }
+
+        gameObject.SetActive(true);
 
         OnActivate();
 
@@ -29,6 +42,7 @@ public abstract class QWindow : QMonoBehaviour {
     }
 
     public void Deactivate() {
+        gameObject.SetActive(false);
 
         OnDeactivate();
 

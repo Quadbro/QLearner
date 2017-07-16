@@ -1,26 +1,44 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class QWindow_Home : QWindow {
+
+    private List<QButton> _buttons;
+
+    public List<QButton> Buttons {
+        get { return _buttons; }
+    }
 
     protected override void OnAwake() {
         base.OnAwake();
 
+        _buttons = new List<QButton>();
+
+        container.ClearAllChildren();
     }
 
     protected override void OnStart() {
-        throw new System.NotImplementedException();
     }
 
     protected override void OnUpdate() {
-        throw new System.NotImplementedException();
     }
 
     protected override void OnActivate() {
-        throw new System.NotImplementedException();
     }
 
     protected override void OnDeactivate() {
-        throw new System.NotImplementedException();
+    }
+
+    public void SetButtons(List<QButtonData> buttons) {
+        foreach (var b in buttons) {
+            AddButton(b);
+        }
+    }
+
+    public void AddButton(QButtonData b) {
+        var btn = Create<QButton>(QManager_Prefab.Instance.prefab_Button_HomeItem, container.transform);
+        btn.Initialize(b);
+        _buttons.Add(btn);
     }
 }

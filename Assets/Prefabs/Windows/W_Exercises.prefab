@@ -303,7 +303,6 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 224389989112151718}
-  - component: {fileID: 114760670201165050}
   - component: {fileID: 114166470911789616}
   - component: {fileID: 222512164719136022}
   m_Layer: 5
@@ -821,6 +820,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e38e9cb38bc49e64f83270c6ab8fa654, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  exercises:
+  - 1
+  - 2
+  - 3
+  - 4
+  - 5
+  - 6
+  - 7
+  - 8
+  widthBarier: 400
+  minimumExercicesCols: 2
+  linePrefab: {fileID: 1599820069193058, guid: 96f477f0847fd0f47851362f1aabc877, type: 2}
+  container: {fileID: 1942935787089356}
 --- !u!114 &114255872964460000
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1286,31 +1298,6 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &114760670201165050
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1361747240988184}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a889c9e5a9887a546a822ada1b36d1c5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  exerciseButtonPrefab: {fileID: 1671068866116698, guid: 2e5c9cb0ea3b2e64e87023fb87e8c91b,
-    type: 2}
-  exercises:
-  - 1
-  - 2
-  - 3
-  - 4
-  - 5
-  - 6
-  - 7
-  - 8
-  widthBarier: 400
-  container: {fileID: 1942935787089356}
-  linePrefab: {fileID: 1599820069193058, guid: 96f477f0847fd0f47851362f1aabc877, type: 2}
 --- !u!114 &114775415518322642
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1900,7 +1887,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 340, y: 836}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224390835511942656
 RectTransform:

@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class QExerciseListening : QExercise {
+public class QExercise_Listening : QExercise {
 
     
 }

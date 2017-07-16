@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class QWindow_Settings : QWindow {
+public class QWindow_User : QWindow {
 
     protected override void OnAwake() {
         base.OnAwake();

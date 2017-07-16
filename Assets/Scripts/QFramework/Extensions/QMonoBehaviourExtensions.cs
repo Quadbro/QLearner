@@ -12,14 +12,14 @@ public static class QMonoBehaviourExtensions  {
  
 
 
-    public static void ClearAllChildren<T>(this T monoBehaviour) where T : QMonoBehaviour {
-        foreach (Transform child in monoBehaviour.transform) {
+    public static void ClearAllChildren(this GameObject go) { 
+        foreach (Transform child in go.transform) {
             GameObject.Destroy(child.gameObject);
         }
     }
 
 
-    public static T GetRequiredComponent<T>(this GameObject obj) where T : QMonoBehaviour {
+    public static T GetRequiredComponent<T>(this GameObject obj) {
         var component = obj.GetComponent<T>();
 
         if (component == null) {
@@ -30,7 +30,7 @@ public static class QMonoBehaviourExtensions  {
         return component;
     }
 
-    public static T GetRequiredComponentInChildren<T>(this GameObject obj) where T : QMonoBehaviour {
+    public static T GetRequiredComponentInChildren<T>(this GameObject obj) {
         var component = obj.GetComponentInChildren<T>();
 
         if (component == null) {
