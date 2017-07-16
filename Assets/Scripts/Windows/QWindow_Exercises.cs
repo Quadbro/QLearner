@@ -5,38 +5,9 @@ using UnityEngine.UI;
 
 public class QWindow_Exercises : QWindow {
 
-
     public List<QButton> Buttons {
         get { return _buttons; }
     }
-    /*
-    public QExercise_WordCards ExerciseWordCards {
-        get { return _exerciseWordCards; }
-    }
-
-    public QExercise_WordTranslation ExerciseWordTranslation {
-        get { return _exerciseWordTranslation; }
-    }
-
-    public QExercise_TranslationWord ExerciseTranslationWord {
-        get { return _exerciseTranslationWord; }
-    }
-
-    public QExercise_Brainstorm ExerciseBrainstorm {
-        get { return _exerciseBrainstorm; }
-    }
-
-    public QExercise_Crossword ExerciseCrossword {
-        get { return _exerciseCrossword; }
-    }
-
-    public QExercise_Constructor ExerciseConstructor {
-        get { return _exerciseConstructor; }
-    }
-
-    public QExercise_Sprint ExerciseSprint {
-        get { return _exerciseSprint; }
-    }*/
 
     public float widthBarier = 200f;
     public int minimumExercicesCols = 2;
@@ -50,27 +21,14 @@ public class QWindow_Exercises : QWindow {
     private VerticalLayoutGroup _containerVGL;
     private RectTransform _containerRT;
 
-    /*
-    private QExercise_Listening _exerciseListening;
-    private QExercise_Sprint _exerciseSprint;
-    private QExercise_Constructor _exerciseConstructor;
-    private QExercise_Crossword _exerciseCrossword;
-    private QExercise_Brainstorm _exerciseBrainstorm;
-    private QExercise_TranslationWord _exerciseTranslationWord;
-    private QExercise_WordTranslation _exerciseWordTranslation;
-    private QExercise_WordCards _exerciseWordCards;
-    */
-
     private List<QButton> _buttons;
-
-    //private List<QWindow> _exercises;
 
     private QWindowGroup _windowGroupExercises;
 
     protected override void OnAwake() {
         base.OnAwake();
+
         _buttons = new List<QButton>();
-        //_exercises = new List<QWindow>();
         _windowGroupExercises = new QWindowGroup();
         
         _containerVGL = container.GetRequiredComponent<VerticalLayoutGroup>();
