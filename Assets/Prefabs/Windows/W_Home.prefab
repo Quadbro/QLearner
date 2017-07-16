@@ -770,6 +770,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb162d3f48b30a247a98fa39b0f1acc0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  data:
+    languageHeaderKey: home_name_home
+    hasButton: 0
   container: {fileID: 1552149066611022}
 --- !u!114 &114882860611603644
 MonoBehaviour:

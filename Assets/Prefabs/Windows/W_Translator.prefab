@@ -38,6 +38,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f3be8fd6c06cfd41b534f4a5db2595e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  data:
+    languageHeaderKey: home_name_translator
+    hasButton: 1
+  container: {fileID: 0}
 --- !u!224 &224517394195363962
 RectTransform:
   m_ObjectHideFlags: 1

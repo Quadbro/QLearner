@@ -38,6 +38,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2cdf3b2ddb044b84493c755c94c09c60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  data:
+    languageHeaderKey: ex_name_crossword
+    hasButton: 0
   container: {fileID: 0}
 --- !u!224 &224649723383582284
 RectTransform:

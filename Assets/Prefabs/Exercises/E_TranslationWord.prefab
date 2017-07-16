@@ -38,6 +38,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00ce934b3e67d0f4c999ff06bbfc3d70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  data:
+    languageHeaderKey: ex_name_translationword
+    hasButton: 0
   container: {fileID: 0}
 --- !u!224 &224649723383582284
 RectTransform:

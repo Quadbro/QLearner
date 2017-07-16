@@ -835,6 +835,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e38e9cb38bc49e64f83270c6ab8fa654, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  data:
+    languageHeaderKey: home_name_exercises
+    hasButton: 1
   container: {fileID: 1942935787089356}
   widthBarier: 400
   minimumExercicesCols: 2
