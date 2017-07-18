@@ -15,8 +15,9 @@ public class QWindow_Exercises : QWindow {
 
 
     public GameObject exercisesContainer;
-
+    public ScrollRect scrollRect;
     public GameObject linePrefab;
+    public GameObject dropdownPrefab;
 
     private VerticalLayoutGroup _containerVGL;
     private RectTransform _containerRT;
@@ -67,6 +68,9 @@ public class QWindow_Exercises : QWindow {
         
         container.ClearAllChildren();
 
+        var dropGO = Instantiate(dropdownPrefab);
+        dropGO.transform.SetParent(container.transform);
+
         var width = _containerRT.rect.width;
         var bOffset = (int)(width / _sidePaddingDivider);
 
@@ -87,6 +91,8 @@ public class QWindow_Exercises : QWindow {
                 currentRow = SpawnNewLine();
             }
         }
+
+        scrollRect.ScrollToTop();
     }
 
     private HorizontalLayoutGroup SpawnNewLine() {
