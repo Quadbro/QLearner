@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class QWindow_Exercises : QWindow {
 
-    public List<QButton> Buttons {
+    public List<QButtonText> Buttons {
         get { return _buttons; }
     }
 
@@ -22,14 +22,14 @@ public class QWindow_Exercises : QWindow {
     private VerticalLayoutGroup _containerVGL;
     private RectTransform _containerRT;
 
-    private List<QButton> _buttons;
+    private List<QButtonText> _buttons;
 
     private QWindowGroup _windowGroupExercises;
 
     protected override void OnAwake() {
         base.OnAwake();
 
-        _buttons = new List<QButton>();
+        _buttons = new List<QButtonText>();
         _windowGroupExercises = new QWindowGroup();
         
         _containerVGL = container.GetRequiredComponent<VerticalLayoutGroup>();
@@ -103,7 +103,7 @@ public class QWindow_Exercises : QWindow {
 
 
     private void AddButton(QButtonData b, Transform parent) {
-        var btn = Create<QButton>(QManager_Prefab.Instance.prefab_Button_ExerciseItem, parent);
+        var btn = Create<QButtonText>(QManager_Prefab.Instance.prefab_Button_ExerciseItem, parent);
         btn.Initialize(b);
         _buttons.Add(btn);
     }

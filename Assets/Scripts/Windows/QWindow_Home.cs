@@ -4,16 +4,16 @@ using System.Collections.Generic;
 
 public class QWindow_Home : QWindow {
 
-    private List<QButton> _buttons;
+    private List<QButtonText> _buttons;
 
-    public List<QButton> Buttons {
+    public List<QButtonText> Buttons {
         get { return _buttons; }
     }
 
     protected override void OnAwake() {
         base.OnAwake();
 
-        _buttons = new List<QButton>();
+        _buttons = new List<QButtonText>();
 
         container.ClearAllChildren();
 
@@ -46,7 +46,7 @@ public class QWindow_Home : QWindow {
     }
 
     public void AddButton(QButtonData b) {
-        var btn = Create<QButton>(QManager_Prefab.Instance.prefab_Button_HomeItem, container.transform);
+        var btn = Create<QButtonText>(QManager_Prefab.Instance.prefab_Button_HomeItem, container.transform);
         btn.Initialize(b);
         _buttons.Add(btn);
     }
