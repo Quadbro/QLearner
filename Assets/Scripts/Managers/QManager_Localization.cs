@@ -59,7 +59,6 @@ public class QManager_Localization : QManager<QManager_Localization> {
 
 
     protected override void OnAwake() {
-        DontDestroyOnLoad(gameObject);
         LoadLanguage();
     }
 

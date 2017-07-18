@@ -7,6 +7,9 @@ public class QApp : QSingleton<QApp> {
     public Canvas canvas;
 
     private void Awake() {
+        DontDestroyOnLoad(gameObject);
+
+
         OnAwake();
     }
 
