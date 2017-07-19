@@ -7,55 +7,60 @@ using UnityEngine.UI;
 
 public class QManager_Window : QManager<QManager_Window> {
 
+    // Getters
+    public QWindow MainWindow {
+        get { return _mainWindow; }
+    }
+    public QWindow UserWindow {
+        get { return _userWindow; }
+    }
+
+    // Actions for main buttons (overidable by any window controller)
+    public Action HomeButtonAction;
+    public Action UserButtonAction;
+
+    // Links for header and main buttons
     public QLocalizedText appHeader;
     public Button homeButton;
     public Button userButton;
 
-    private QWindowGroup _mainWindowGroup;
+    // Prefabs for starting window and account window
+    public GameObject mainWindowPrefab;
+    public GameObject userWindowPrefab;
+
+    // Links for starting window and account window
+    private QWindow _mainWindow;
+    private QWindow _userWindow;
+
 
     protected override void OnAwake() {
 
         gameObject.ClearAllChildren();
 
-        _mainWindowGroup = new QWindowGroup();
+        _mainWindow = Create<QWindow>(mainWindowPrefab, transform);
+        _mainWindow.AwakeCycle();
 
-        foreach (var prefab in QManager_Prefab.Instance.prefab_Windows_Main) {
-            var ex = Create<QWindow>(prefab, transform);
-            _mainWindowGroup.Link(ex);
-        }
-
-        foreach (var window in _mainWindowGroup.windows) {
-            window.AwakeCycle();
-        }
+        _userWindow = _mainWindow.SpawnWindow(userWindowPrefab);
+        _userWindow.AwakeCycle();
 
         homeButton.onClick.AddListener(() => {
-            var w = FindWindow(typeof(QWindow_Home));
-            if (w) {
-                w.Activate();
+            if (HomeButtonAction != null) {
+                HomeButtonAction();
             }
         });
 
         userButton.onClick.AddListener(() => {
-            var w = FindWindow(typeof(QWindow_User));
-            if (w) {
-                w.Activate();
+            if (UserButtonAction != null) {
+                UserButtonAction();
             }
         });
     }
 
-    private QWindow FindWindow(Type t) {
-        foreach (var window in _mainWindowGroup.windows) {
-            if (window.GetType() == t) { 
-                return window;
-            }
-        }
-        return null;
-    }
-
     protected override void OnStart() {
-        foreach (var window in _mainWindowGroup.windows) {
-            window.StartCycle();
-        }
+        _mainWindow.StartCycle();
+        _userWindow.StartCycle();
+
+        _mainWindow.Activate();
     }
 
     protected override void OnUpdate() {

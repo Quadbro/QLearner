@@ -6,7 +6,6 @@ using System.Collections.Generic;
 [Serializable]
 public class QWindowData {
     public string languageHeaderKey;
-    public bool hasButton;
 
     public QWindowData(string languageHeaderKey) {
         this.languageHeaderKey = languageHeaderKey;
@@ -15,37 +14,89 @@ public class QWindowData {
 
 public abstract class QWindow : QMonoBehaviour {
 
-    public event Action OnActivateEvent;
-    public event Action OnDeactivateEvent;
+    [Header("Necesary Data")]
+    public GameObject containerContent;
+    public GameObject containerWindows;
 
-    /*public List<QWindow> Windows {
-        get { return _windows; }
-    }*/
+    [Header("List of all child windows")]
+    public List<GameObject> subWindows;
 
+    [Header("Tweakable Data")]
+    public QWindowData data;
+
+    // Getters
     public QWindowGroup WindowGroup {
         get { return _windowGroup; }
         set { _windowGroup = value; }
     }
 
-    public QWindowData data;
-    public GameObject container;
+    public QWindowData Data {
+        get { return data; }
+        set { data = value; }
+    }
 
-    //private List<QWindow> _windows = new List<QWindow>();
+    public QWindow ParentWindow {
+        get { return _parentWindow; }
+        set { _parentWindow = value; }
+    }
 
+    public CanvasGroup CanvasGroup {
+        get { return _canvasGroup; }
+    }
 
-
+    // Protected stuff
     protected RectTransform _rectTransform;
     protected QWindowGroup _windowGroup;
+    protected QWindow _parentWindow;
+    protected QManager_Window _managerWindow;
+    protected CanvasGroup _canvasGroup;
+
+    // Events
+    public event Action OnActivateEvent;
+    public event Action OnDeactivateEvent;
+
+    protected virtual void OnHomeAction() {
+        _managerWindow.MainWindow.Activate();
+    }
+
+    protected virtual void OnUserAction() {
+        _managerWindow.UserWindow.Activate();
+    }
+
+    protected abstract void OnActivate();
+    protected abstract void OnDeactivate();
 
     protected override void OnAwake() {
         _rectTransform = gameObject.GetRequiredComponent<RectTransform>();
+        _canvasGroup = gameObject.GetComponent<CanvasGroup>();
 
-        _rectTransform.offsetMin = new Vector2(0, 0);
-        _rectTransform.offsetMax = new Vector2(0, 0);
+        _windowGroup = new QWindowGroup();
+
+        _managerWindow = QManager_Window.Instance;
+
+        if (containerContent) {
+            containerContent.gameObject.ClearAllChildren();
+        }
+
+        if (containerWindows) {
+            containerWindows.gameObject.ClearAllChildren();
+        }
+
+
+        ResetOffsets();
     }
 
     public void Activate() {
         _windowGroup.Activate(this);
+
+        if (_parentWindow) {
+            _parentWindow.CanvasGroup.alpha = 0;
+        }
+
+        CanvasGroup.alpha = 1;
+
+        _managerWindow.HomeButtonAction = OnHomeAction;
+        _managerWindow.UserButtonAction = OnUserAction;
 
         OnActivate();
 
@@ -64,7 +115,17 @@ public abstract class QWindow : QMonoBehaviour {
         }
     }
 
-    protected abstract void OnActivate();
-    protected abstract void OnDeactivate();
+    public QWindow SpawnWindow(GameObject prefab) {
+        var w = Create<QWindow>(prefab, containerWindows.transform);
+        w.ParentWindow = this;
+        _windowGroup.Link(w);
+        return w;
+    }
 
+    // ----------------------------------------------- Private
+
+    private void ResetOffsets() {
+        _rectTransform.offsetMin = new Vector2(0, 0);
+        _rectTransform.offsetMax = new Vector2(0, 0);
+    }
 }

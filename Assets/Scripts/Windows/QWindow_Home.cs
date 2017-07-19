@@ -4,32 +4,28 @@ using System.Collections.Generic;
 
 public class QWindow_Home : QWindow {
 
-    private List<QButtonText> _buttons;
-
-    public List<QButtonText> Buttons {
-        get { return _buttons; }
-    }
 
     protected override void OnAwake() {
         base.OnAwake();
 
-        _buttons = new List<QButtonText>();
-
-        container.ClearAllChildren();
-
-        foreach (var window in _windowGroup.windows) {
-            if (window.data.hasButton) {
-                AddButton(new QButtonData(window));
-            }
+        // Create all windows and link to home page
+        foreach (var prefab in subWindows) {
+            SpawnWindow(prefab);
         }
 
-        AddButton(new QButtonData("home_name_exit", () => {
-            QApp.Instance.SaveAppData();
-            Application.Quit();
-        }));
+        SpawnButtons();
+
+        // Launch Awake cycle on child contollers
+        foreach (var w in _windowGroup.windows) {
+            w.AwakeCycle();
+        }
     }
 
     protected override void OnStart() {
+        foreach (var w in _windowGroup.windows) {
+            w.StartCycle();
+        }
+
         Activate();
     }
 
@@ -42,15 +38,22 @@ public class QWindow_Home : QWindow {
     protected override void OnDeactivate() {
     }
 
-    public void SetButtons(List<QButtonData> buttons) {
-        foreach (var b in buttons) {
-            AddButton(b);
+
+    // -------------------------------------------- Private stuff
+    private void SpawnButtons() {
+        foreach (var w in _windowGroup.windows) {
+            SpawnButton(new QButtonData(w));
         }
+
+        SpawnButton(new QButtonData("home_name_exit", () => {
+            QApp.Instance.SaveAppData();
+            Application.Quit();
+        }));
     }
 
-    public void AddButton(QButtonData b) {
-        var btn = Create<QButtonText>(QManager_Prefab.Instance.prefab_Button_HomeItem, container.transform);
+    private  QButtonText SpawnButton(QButtonData b) {
+        var btn = Create<QButtonText>(QManager_Prefab.Instance.prefab_Button_HomeItem, containerContent.transform);
         btn.Initialize(b);
-        _buttons.Add(btn);
+        return btn;
     }
 }

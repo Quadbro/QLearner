@@ -2,10 +2,12 @@
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class QApp : QSingleton<QApp> {
 
     public Canvas canvas;
+    public Image background;
 
     public UserData User {
         get { return _user; }
@@ -49,6 +51,8 @@ public class QApp : QSingleton<QApp> {
 
     protected override void OnAwake() {
         DontDestroyOnLoad(gameObject);
+
+        background.color = QManager_Theme.Instance.CurrentScheme.background;
 
         LoadAppData();
 

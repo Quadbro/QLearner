@@ -23,7 +23,7 @@ public class QWindowGroup {
             }
         }
 
-        QManager_Window.Instance.appHeader.Key = w.data.languageHeaderKey;
+        QManager_Window.Instance.appHeader.Key = w.Data.languageHeaderKey;
         w.gameObject.SetActive(true);
     }
 }

@@ -4,10 +4,17 @@ using System.Collections.Generic;
 
 [System.Serializable]
 public enum QColorPalette {
-    Default,
-    Pink,
-    Blue,
-    Green
+    Default_Light = 0,
+    Default_Dark = 1,
+
+    Pink_Light = 2,
+    Pink_Dark = 3,
+
+    Blue_Light = 4,
+    Blue_Dark = 5,
+
+    Green_Light = 6,
+    Green_Dark = 7,
 }
 
 [System.Serializable]
@@ -18,6 +25,8 @@ public class QColorScheme {
     public Color highlight = Color.grey;
     public Color pressed = Color.red;
     public Color disabled = Color.gray;
+
+    public Color background = Color.black;
 }
 
 public class QManager_Theme : QManager<QManager_Theme> {

@@ -20,3 +20,8 @@ public class UserData {
         settings = new SettingsData();
     }
 }
+
+
+public static class UserDataExtensions {
+    
+}
