@@ -23,7 +23,10 @@ public class QWindow_Home : QWindow {
             }
         }
 
-        AddButton(new QButtonData("home_name_exit", Application.Quit));
+        AddButton(new QButtonData("home_name_exit", () => {
+            QApp.Instance.SaveAppData();
+            Application.Quit();
+        }));
     }
 
     protected override void OnStart() {
