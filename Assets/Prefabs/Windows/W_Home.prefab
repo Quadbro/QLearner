@@ -151,8 +151,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb162d3f48b30a247a98fa39b0f1acc0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  containerContent: {fileID: 1552149066611022}
-  containerWindows: {fileID: 1361057668077796}
+  containerContent: {fileID: 224966399655466482}
+  containerWindows: {fileID: 224188488550839092}
   subWindows:
   - {fileID: 1088327019209650, guid: e7b2b3add46b6b34ba3fe6990dd782a2, type: 2}
   - {fileID: 1025721730353060, guid: b1348fda0d008b04f8dab875bd672b64, type: 2}
@@ -161,6 +161,8 @@ MonoBehaviour:
   - {fileID: 1769859081203176, guid: 3e6be12d1c14ab44f82ff1d31da6397d, type: 2}
   data:
     languageHeaderKey: home_name_home
+  prefab_Button_HomeItem: {fileID: 1550233655738026, guid: d640c4bc81cbb034f8f96d65c1172cfa,
+    type: 2}
 --- !u!222 &222420313328995708
 CanvasRenderer:
   m_ObjectHideFlags: 1

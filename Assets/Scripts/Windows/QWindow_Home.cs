@@ -4,6 +4,7 @@ using System.Collections.Generic;
 
 public class QWindow_Home : QWindow {
 
+    public GameObject prefab_Button_HomeItem;
 
     protected override void OnAwake() {
         base.OnAwake();
@@ -54,7 +55,7 @@ public class QWindow_Home : QWindow {
     }
 
     private  QButtonText SpawnButton(QButtonData b) {
-        var btn = Create<QButtonText>(QManager_Prefab.Instance.prefab_Button_HomeItem, containerContent.transform);
+        var btn = Create<QButtonText>(prefab_Button_HomeItem, containerContent.transform);
         btn.Initialize(b);
         return btn;
     }

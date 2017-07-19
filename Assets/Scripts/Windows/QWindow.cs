@@ -15,8 +15,8 @@ public class QWindowData {
 public abstract class QWindow : QMonoBehaviour {
 
     [Header("Necesary Data")]
-    public GameObject containerContent;
-    public GameObject containerWindows;
+    public Transform containerContent;
+    public Transform containerWindows;
 
     [Header("List of all child windows")]
     public List<GameObject> subWindows;
@@ -78,11 +78,11 @@ public abstract class QWindow : QMonoBehaviour {
 
 
         if (containerContent) {
-            containerContent.gameObject.ClearAllChildren();
+            containerContent.ClearAllChildren();
         }
 
         if (containerWindows) {
-            containerWindows.gameObject.ClearAllChildren();
+            containerWindows.ClearAllChildren();
         }
 
 

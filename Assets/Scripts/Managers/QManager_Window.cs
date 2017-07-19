@@ -35,7 +35,7 @@ public class QManager_Window : QManager<QManager_Window> {
 
     protected override void OnAwake() {
 
-        gameObject.ClearAllChildren();
+        transform.ClearAllChildren();
 
         _mainWindow = Create<QWindow>(mainWindowPrefab, transform);
 

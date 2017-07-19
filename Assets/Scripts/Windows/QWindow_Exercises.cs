@@ -14,6 +14,7 @@ public class QWindow_Exercises : QWindow {
     public ScrollRect scrollRect;
     public GameObject linePrefab;
     public GameObject dropdownPrefab;
+    public GameObject prefab_Button_ExerciseItem;
 
     private VerticalLayoutGroup _containerVGL;
     private RectTransform _containerRT;
@@ -21,8 +22,8 @@ public class QWindow_Exercises : QWindow {
     protected override void OnAwake() {
         base.OnAwake();
         
-        _containerVGL = containerContent.GetRequiredComponent<VerticalLayoutGroup>();
-        _containerRT = containerContent.GetRequiredComponent<RectTransform>();
+        _containerVGL = containerContent.gameObject.GetRequiredComponent<VerticalLayoutGroup>();
+        _containerRT = containerContent.gameObject.GetRequiredComponent<RectTransform>();
 
         foreach (var prefab in subWindows) {
             SpawnWindow(prefab);
@@ -93,7 +94,7 @@ public class QWindow_Exercises : QWindow {
 
 
     private QButtonText SpawnButton(QButtonData b, Transform parent) {
-        var btn = Create<QButtonText>(QManager_Prefab.Instance.prefab_Button_ExerciseItem, parent);
+        var btn = Create<QButtonText>(prefab_Button_ExerciseItem, parent);
         btn.Initialize(b);
         return btn;
     }

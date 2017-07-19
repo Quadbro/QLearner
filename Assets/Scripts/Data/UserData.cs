@@ -19,6 +19,11 @@ public class UserData {
 
         settings = new SettingsData();
     }
+
+
+    public void CreateDictionary(string name) {
+        dictionaries.Add(new DictionaryData(name));
+    }
 }
 
 

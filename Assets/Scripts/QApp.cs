@@ -58,12 +58,10 @@ public class QApp : QSingleton<QApp> {
 
         QManager_Localization.Instance.AwakeCycle();
         QManager_Window.Instance.AwakeCycle();
-        QManager_Prefab.Instance.AwakeCycle();
     }
 
     protected override void OnStart() {
         QManager_Window.Instance.StartCycle();
-        QManager_Prefab.Instance.StartCycle();
 
         ApplyLoadedData();
     }

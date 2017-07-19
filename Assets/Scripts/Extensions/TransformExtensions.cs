@@ -15,4 +15,10 @@ public static class TransformExtensions {
         }
         return null;
     }
+
+    public static void ClearAllChildren(this Transform tr) {
+        foreach (Transform child in tr) {
+            GameObject.Destroy(child.gameObject);
+        }
+    }
 }

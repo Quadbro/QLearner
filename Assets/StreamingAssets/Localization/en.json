@@ -63,6 +63,14 @@
         {
             "key": "home_name_home",
             "value": "Home"
+        },
+        {
+            "key": "dictionary_add_placeholder",
+            "value": "Enter dictionary name"
+        },
+        {
+            "key": "dictionary_add_btn_text",
+            "value": "Create"
         }
     ]
 }

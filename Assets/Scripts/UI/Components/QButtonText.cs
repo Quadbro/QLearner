@@ -26,23 +26,24 @@ public class QButtonText : Button {
     private QLocalizedText _text;
     private QButtonData _data;
     private QColorScheme _colorScheme;
-    private Image _btnImage;
 
     public float textFadeDuration = 0.1f;
 
     public void Initialize(QButtonData data) {
         _text = gameObject.GetRequiredComponentInChildren<QLocalizedText>();
-        _btnImage = gameObject.GetRequiredComponent<Image>();
         _data = data;
         _colorScheme = QManager_Theme.Instance.CurrentScheme;
         _text.Key = _data.key;
 
         _text.CrossFadeColor(_colorScheme.normal, textFadeDuration, true, true);
 
-        _btnImage.CrossFadeAlpha(0, textFadeDuration, true);
+        targetGraphic.CrossFadeAlpha(0, textFadeDuration, true);
     }
 
-    
+    public void SetTextStrict(string str) {
+        _text.Key = null;
+        _text.text = str;
+    }
 
     public override void OnPointerClick(PointerEventData eventData) {
         base.OnPointerClick(eventData);
@@ -53,14 +54,14 @@ public class QButtonText : Button {
         base.OnPointerExit(eventData);
 
         _text.CrossFadeColor(_colorScheme.normal, textFadeDuration, true, true);
-        _btnImage.CrossFadeAlpha(0, textFadeDuration, true);
+        targetGraphic.CrossFadeAlpha(0, textFadeDuration, true);
     }
 
     public override void OnPointerEnter(PointerEventData eventData) {
         base.OnPointerEnter(eventData);
 
         _text.CrossFadeColor(_colorScheme.highlight, textFadeDuration, true, true);
-        _btnImage.CrossFadeAlpha(0.5f, textFadeDuration, true);
+        targetGraphic.CrossFadeAlpha(0.5f, textFadeDuration, true);
 
     }
 

@@ -63,6 +63,14 @@
         {
             "key": "home_name_home",
             "value": "Главная"
+        },
+        {
+            "key": "dictionary_add_placeholder",
+            "value": "Введите имя словаря"
+        },
+        {
+            "key": "dictionary_add_btn_text",
+            "value": "Создать"
         }
     ]
 }

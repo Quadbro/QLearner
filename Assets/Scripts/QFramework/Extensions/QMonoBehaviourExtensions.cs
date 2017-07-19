@@ -9,14 +9,6 @@ public static class QMonoBehaviourExtensions  {
         return monoBehaviour.StartCoroutine(InvokeImpl(action, time));
     }
 
- 
-
-
-    public static void ClearAllChildren(this GameObject go) { 
-        foreach (Transform child in go.transform) {
-            GameObject.Destroy(child.gameObject);
-        }
-    }
 
 
     public static T GetRequiredComponent<T>(this GameObject obj) {

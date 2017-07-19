@@ -2,7 +2,20 @@
     "username": "test",
     "password": "1234",
     "accountName": "",
-    "dictionaries": [],
+    "dictionaries": [
+        {
+            "name": "TestDict",
+            "words": []
+        },
+        {
+            "name": "Кудлатые качели",
+            "words": []
+        },
+        {
+            "name": "12312312111",
+            "words": []
+        }
+    ],
     "settings": {
         "interfaceLanguage": 0
     }

@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
+using UnityEngine.UI;
 
 public class QManager_Localization : QManager<QManager_Localization> {
 
@@ -53,6 +54,13 @@ public class QManager_Localization : QManager<QManager_Localization> {
         foreach (var text in QLocalizedText.instances) {
             if (text) {
                 text.UpdateText();
+            }
+        }
+
+        foreach (var inputField in QInputField.instances) {
+            var placeHolderText = (Text)inputField.placeholder;
+            if (placeHolderText) {
+                inputField.UpdateText();
             }
         }
     }

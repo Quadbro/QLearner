@@ -128,8 +128,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d778217350834a4dba4a581f71889ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  containerContent: {fileID: 1753998683506856}
-  containerWindows: {fileID: 1234022411403196}
+  containerContent: {fileID: 224129633699930972}
+  containerWindows: {fileID: 224975432581599504}
   subWindows: []
   data:
     languageHeaderKey: home_name_web
@@ -243,4 +243,4 @@ CanvasGroup:
   m_Alpha: 1
   m_Interactable: 1
   m_BlocksRaycasts: 1
-  m_IgnoreParentGroups: 0
+  m_IgnoreParentGroups: 1
