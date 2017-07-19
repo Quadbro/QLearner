@@ -9,6 +9,8 @@ public class QWindow_Translator : QWindow {
     }
 
     protected override void OnStart() {
+        base.OnStart();
+
     }
 
     protected override void OnUpdate() {

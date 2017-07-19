@@ -38,10 +38,14 @@ public class QManager_Window : QManager<QManager_Window> {
         gameObject.ClearAllChildren();
 
         _mainWindow = Create<QWindow>(mainWindowPrefab, transform);
+
         _mainWindow.AwakeCycle();
 
         _userWindow = _mainWindow.SpawnWindow(userWindowPrefab);
+
         _userWindow.AwakeCycle();
+
+        //_userWindow.AwakeCycle();
 
         homeButton.onClick.AddListener(() => {
             if (HomeButtonAction != null) {
@@ -58,7 +62,7 @@ public class QManager_Window : QManager<QManager_Window> {
 
     protected override void OnStart() {
         _mainWindow.StartCycle();
-        _userWindow.StartCycle();
+        //_userWindow.StartCycle();
 
         _mainWindow.Activate();
     }

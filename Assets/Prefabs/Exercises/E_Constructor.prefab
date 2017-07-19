@@ -20,6 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 224649723383582284}
   - component: {fileID: 114872318121506704}
+  - component: {fileID: 225848662175586304}
   m_Layer: 5
   m_Name: E_Constructor
   m_TagString: Untagged
@@ -38,10 +39,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5b27ac962f3b804e90d53acd076654b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  containerContent: {fileID: 0}
+  containerWindows: {fileID: 0}
+  subWindows: []
   data:
     languageHeaderKey: ex_name_constructor
-    hasButton: 0
-  container: {fileID: 0}
 --- !u!224 &224649723383582284
 RectTransform:
   m_ObjectHideFlags: 1
@@ -60,3 +62,14 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!225 &225848662175586304
+CanvasGroup:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1769859081203176}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 1

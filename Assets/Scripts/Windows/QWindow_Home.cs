@@ -22,6 +22,8 @@ public class QWindow_Home : QWindow {
     }
 
     protected override void OnStart() {
+        base.OnStart();
+
         foreach (var w in _windowGroup.windows) {
             w.StartCycle();
         }

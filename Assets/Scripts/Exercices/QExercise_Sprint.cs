@@ -13,6 +13,7 @@ public class QExercise_Sprint : QWindow {
     }
 
     protected override void OnStart() {
+        base.OnStart();
 
     }
 

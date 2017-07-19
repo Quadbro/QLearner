@@ -36,6 +36,8 @@ public class QWindow_Exercises : QWindow {
     }
 
     protected override void OnStart() {
+        base.OnStart();
+
         foreach (var w in _windowGroup.windows) {
             w.StartCycle();
         }

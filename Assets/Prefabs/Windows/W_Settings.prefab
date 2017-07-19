@@ -20,6 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 224649723383582284}
   - component: {fileID: 114599694809825120}
+  - component: {fileID: 225090417990241204}
   m_Layer: 5
   m_Name: W_Settings
   m_TagString: Untagged
@@ -38,10 +39,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec111a4a6f87f6c4f9b470b9f189c2c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  containerContent: {fileID: 0}
+  containerWindows: {fileID: 0}
+  subWindows: []
   data:
     languageHeaderKey: home_name_settings
-    hasButton: 1
-  container: {fileID: 0}
 --- !u!224 &224649723383582284
 RectTransform:
   m_ObjectHideFlags: 1
@@ -60,3 +62,14 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!225 &225090417990241204
+CanvasGroup:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1769859081203176}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0

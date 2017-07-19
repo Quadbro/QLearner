@@ -13,6 +13,7 @@ public class QExercise_TranslationWord : QWindow {
     }
 
     protected override void OnStart() {
+        base.OnStart();
 
     }
 

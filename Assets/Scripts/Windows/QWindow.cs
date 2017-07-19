@@ -56,10 +56,12 @@ public abstract class QWindow : QMonoBehaviour {
     public event Action OnDeactivateEvent;
 
     protected virtual void OnHomeAction() {
+        Deactivate();
         _managerWindow.MainWindow.Activate();
     }
 
     protected virtual void OnUserAction() {
+        Deactivate();
         _managerWindow.UserWindow.Activate();
     }
 
@@ -74,6 +76,7 @@ public abstract class QWindow : QMonoBehaviour {
 
         _managerWindow = QManager_Window.Instance;
 
+
         if (containerContent) {
             containerContent.gameObject.ClearAllChildren();
         }
@@ -86,11 +89,16 @@ public abstract class QWindow : QMonoBehaviour {
         ResetOffsets();
     }
 
-    public void Activate() {
-        _windowGroup.Activate(this);
+    protected override void OnStart() {
+ 
+    }
 
+    public void Activate() {
         if (_parentWindow) {
+            _parentWindow.WindowGroup.Activate(this);
             _parentWindow.CanvasGroup.alpha = 0;
+        } else {
+            _windowGroup.Activate(this);
         }
 
         CanvasGroup.alpha = 1;

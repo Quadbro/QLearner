@@ -55,7 +55,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1769859081203176
 GameObject:
   m_ObjectHideFlags: 0
@@ -65,6 +65,7 @@ GameObject:
   m_Component:
   - component: {fileID: 224649723383582284}
   - component: {fileID: 114599694809825120}
+  - component: {fileID: 225174770025078846}
   m_Layer: 5
   m_Name: W_Web
   m_TagString: Untagged
@@ -127,11 +128,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d778217350834a4dba4a581f71889ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  data:
-    languageHeaderKey: home_name_web
-    hasButton: 1
   containerContent: {fileID: 1753998683506856}
   containerWindows: {fileID: 1234022411403196}
+  subWindows: []
+  data:
+    languageHeaderKey: home_name_web
 --- !u!222 &222630174860822348
 CanvasRenderer:
   m_ObjectHideFlags: 1
@@ -232,3 +233,14 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!225 &225174770025078846
+CanvasGroup:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1769859081203176}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0

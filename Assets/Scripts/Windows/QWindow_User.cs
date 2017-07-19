@@ -4,11 +4,10 @@ using System.Collections;
 public class QWindow_User : QWindow {
 
     protected override void OnAwake() {
-        base.OnAwake();
-
-    }
+        base.OnAwake();    }
 
     protected override void OnStart() {
+        base.OnStart();
     }
 
     protected override void OnUpdate() {

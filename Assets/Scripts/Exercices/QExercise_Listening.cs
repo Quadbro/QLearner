@@ -8,6 +8,7 @@ public class QExercise_Listening : QWindow {
     }
 
     protected override void OnStart() {
+        base.OnStart();
 
     }
 

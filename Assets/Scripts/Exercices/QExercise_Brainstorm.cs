@@ -13,7 +13,7 @@ public class QExercise_Brainstorm : QWindow {
     }
 
     protected override void OnStart() {
-
+        base.OnStart();
     }
 
     protected override void OnUpdate() {

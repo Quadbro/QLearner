@@ -7,8 +7,10 @@ public class QWindowGroup {
     public List<QWindow> windows = new List<QWindow>();
 
     public void Link(QWindow window) {
-        windows.Add(window);
-        window.WindowGroup = this;
+        if (!windows.Contains(window)) {
+            windows.Add(window);
+            window.WindowGroup = this;
+        }
     }
 
     public void Unlink(QWindow window) {

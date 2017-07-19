@@ -13,6 +13,7 @@ public class QExercise_Constructor : QWindow {
     }
 
     protected override void OnStart() {
+        base.OnStart();
 
     }
 
