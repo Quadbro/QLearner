@@ -1,14 +1,15 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class QWindow_Dictionary : QWindow {
 
-    public GameObject prefab_TopContainer;
+    public ScrollRect scrollRect;
     public GameObject prefab_InputField;
-    public GameObject prefab_ButtonAdd;
-    public GameObject prefab_DictionatyItem;
 
-    private QInputField _dictAddnputField;
+    public GameObject prefab_DictionaryItem;
+
+    private QInputFieldButton _dictAddnputField;
 
     protected override void OnAwake() {
         base.OnAwake();
@@ -25,20 +26,21 @@ public class QWindow_Dictionary : QWindow {
     private void RespawnDictionaries() {
         containerContent.ClearAllChildren();
 
-        _dictAddnputField = Create<QInputField>(prefab_InputField, containerContent.transform);
+        _dictAddnputField = Create<QInputFieldButton>(prefab_InputField, containerContent);
+        _dictAddnputField.Btn.Initialize(new QButtonData(null, AddDictAction));
         _dictAddnputField.KeyPlaceholder = "dictionary_add_placeholder";
 
-        var buttonAddDict = Create<QButtonText>(prefab_ButtonAdd, containerContent.transform);
-        buttonAddDict.Initialize(new QButtonData("dictionary_add_btn_text", AddDictAction));
-
         foreach (var dictionaryData in QApp.Instance.User.dictionaries) {
-            var dictButton = Create<QButtonText>(prefab_DictionatyItem, containerContent.transform);
+            var dictButton = Create<QButtonText>(prefab_DictionaryItem, containerContent);
             dictButton.Initialize(new QButtonData(null, () => {
                 Debug.Log(dictionaryData.name);
             }));
 
             dictButton.SetTextStrict(dictionaryData.name);
         }
+
+        scrollRect.ScrollToTop();
+
     }
 
     private void AddDictAction() {

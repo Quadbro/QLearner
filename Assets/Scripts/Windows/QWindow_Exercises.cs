@@ -78,7 +78,7 @@ public class QWindow_Exercises : QWindow {
         for (var i = 0; i < _windowGroup.windows.Count; i++) {
             SpawnButton(new QButtonData(_windowGroup.windows[i].Data.languageHeaderKey, _windowGroup.windows[i].Activate), currentRow.transform);
 
-            if ((i + 1) % rows == 0) {
+            if ((i + 1) % rows == 0 && (i+1) != _windowGroup.windows.Count) {
                 currentRow = SpawnNewLine();
             }
         }

@@ -21,8 +21,8 @@ public class QManager_Window : QManager<QManager_Window> {
 
     // Links for header and main buttons
     public QLocalizedText appHeader;
-    public Button homeButton;
-    public Button userButton;
+    public QButtonImage homeButton;
+    public QButtonImage userButton;
 
     // Prefabs for starting window and account window
     public GameObject mainWindowPrefab;
@@ -47,17 +47,17 @@ public class QManager_Window : QManager<QManager_Window> {
 
         //_userWindow.AwakeCycle();
 
-        homeButton.onClick.AddListener(() => {
+        homeButton.Initialize(new QButtonData(null, () => {
             if (HomeButtonAction != null) {
                 HomeButtonAction();
             }
-        });
+        }));
 
-        userButton.onClick.AddListener(() => {
+        userButton.Initialize(new QButtonData(null, () => {
             if (UserButtonAction != null) {
                 UserButtonAction();
             }
-        });
+        }));
     }
 
     protected override void OnStart() {

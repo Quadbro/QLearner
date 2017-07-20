@@ -37,7 +37,7 @@ public abstract class QMonoBehaviour : MonoBehaviour {
     }
 
     // ------------------------------------------------------------------------------------------------------------------------
-    public static T Create<T>(GameObject prefab, Transform parent = null) where T : MonoBehaviour {
+    public static T Create<T>(GameObject prefab, Transform parent = null) {
         var go = Instantiate(prefab);
         if (parent != null) {
             go.transform.SetParent(parent);
@@ -45,7 +45,7 @@ public abstract class QMonoBehaviour : MonoBehaviour {
         return go.GetRequiredComponent<T>();
     }
 
-    public static T Create<T>(GameObject prefab, Vector3 position, Quaternion rotation, Transform parent = null) where T : MonoBehaviour {
+    public static T Create<T>(GameObject prefab, Vector3 position, Quaternion rotation, Transform parent = null) {
         var go = Instantiate(prefab, position, rotation);
         if (parent != null) {
             go.transform.SetParent(parent);
