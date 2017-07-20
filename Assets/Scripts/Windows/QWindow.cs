@@ -6,9 +6,11 @@ using System.Collections.Generic;
 [Serializable]
 public class QWindowData {
     public string languageHeaderKey;
+    public bool isTranslatable;
 
-    public QWindowData(string languageHeaderKey) {
+    public QWindowData(string languageHeaderKey, bool isTranslatable = true) {
         this.languageHeaderKey = languageHeaderKey;
+        this.isTranslatable = isTranslatable;
     }
 }
 
@@ -102,7 +104,7 @@ public abstract class QWindow : QMonoBehaviour {
         }
 
         CanvasGroup.alpha = 1;
-
+        _managerWindow.CurrentWindowLink = this;
         _managerWindow.HomeButtonAction = OnHomeAction;
         _managerWindow.UserButtonAction = OnUserAction;
 
@@ -123,8 +125,8 @@ public abstract class QWindow : QMonoBehaviour {
         }
     }
 
-    public QWindow SpawnWindow(GameObject prefab) {
-        var w = Create<QWindow>(prefab, containerWindows.transform);
+    public T SpawnWindow<T>(GameObject prefab) where  T : QWindow{
+        var w = Create<T>(prefab, containerWindows.transform);
         w.ParentWindow = this;
         _windowGroup.Link(w);
         return w;

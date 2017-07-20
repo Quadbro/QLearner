@@ -817,10 +817,13 @@ MonoBehaviour:
   subWindows: []
   data:
     languageHeaderKey: home_name_dictionaries
+    isTranslatable: 1
   scrollRect: {fileID: 114931279040285206}
   prefab_InputField: {fileID: 1146831917698808, guid: ac85a4f0b8211384b80c29c325586b1f,
     type: 2}
   prefab_DictionaryItem: {fileID: 1939239284559938, guid: 46255c9f079ad544ba1e070f824e499b,
+    type: 2}
+  prefab_OpenedDictionaryWindow: {fileID: 1990109540238230, guid: 65be901d45beb5246ac2e5a6c002570a,
     type: 2}
 --- !u!114 &114389407510224654
 MonoBehaviour:

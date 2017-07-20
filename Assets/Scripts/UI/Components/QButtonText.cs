@@ -36,8 +36,6 @@ public class QButtonText : Button {
         _text.Key = _data.key;
 
         _text.CrossFadeColor(_colorScheme.normal, textFadeDuration, true, true);
-
-        //targetGraphic.CrossFadeAlpha(0, textFadeDuration, true);
     }
 
     public void SetTextStrict(string str) {
@@ -53,19 +51,13 @@ public class QButtonText : Button {
     public override void OnPointerExit(PointerEventData eventData) {
         base.OnPointerExit(eventData);
 
-       
         _text.CrossFadeColor(_colorScheme.normal, textFadeDuration, true, true);
-
-        _text.CrossFadeColor(_colorScheme.normal, textFadeDuration, true, true);
-        //targetGraphic.CrossFadeAlpha(0, textFadeDuration, true);
     }
 
     public override void OnPointerEnter(PointerEventData eventData) {
         base.OnPointerEnter(eventData);
 
         _text.CrossFadeColor(_colorScheme.highlight, textFadeDuration, true, true);
-        //targetGraphic.CrossFadeAlpha(0.5f, textFadeDuration, true);
-
     }
 
     public override void OnPointerDown(PointerEventData eventData) {

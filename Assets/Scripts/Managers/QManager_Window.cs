@@ -15,6 +15,11 @@ public class QManager_Window : QManager<QManager_Window> {
         get { return _userWindow; }
     }
 
+    public QWindow CurrentWindowLink {
+        get { return _currentWindowLink; }
+        set { _currentWindowLink = value; }
+    }
+
     // Actions for main buttons (overidable by any window controller)
     public Action HomeButtonAction;
     public Action UserButtonAction;
@@ -32,6 +37,8 @@ public class QManager_Window : QManager<QManager_Window> {
     private QWindow _mainWindow;
     private QWindow _userWindow;
 
+    private QWindow _currentWindowLink;
+
 
     protected override void OnAwake() {
         transform.ClearAllChildren();
@@ -44,7 +51,7 @@ public class QManager_Window : QManager<QManager_Window> {
 
         _mainWindow.AwakeCycle();
 
-        _userWindow = _mainWindow.SpawnWindow(userWindowPrefab);
+        _userWindow = _mainWindow.SpawnWindow<QWindow>(userWindowPrefab);
 
         _userWindow.AwakeCycle();
 
@@ -74,8 +81,13 @@ public class QManager_Window : QManager<QManager_Window> {
     protected override void OnUpdate() {
     }
 
-    public void SetHeaderTextKey(string key) {
+    public void SetHeaderLocalizedText(string key) {
         appHeader.Key = key;
+    }
+
+    public void SetHeaderText(string text) {
+        appHeader.Key = null;
+        appHeader.text = text;
     }
 
 }

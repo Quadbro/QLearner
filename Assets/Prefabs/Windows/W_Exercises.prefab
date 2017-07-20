@@ -1482,6 +1482,7 @@ MonoBehaviour:
   - {fileID: 1769859081203176, guid: 6b5dc111ff557b44b98496c9f54bd24b, type: 2}
   data:
     languageHeaderKey: home_name_exercises
+    isTranslatable: 1
   widthBarier: 400
   minimumExercicesCols: 2
   scrollRect: {fileID: 114166470911789616}

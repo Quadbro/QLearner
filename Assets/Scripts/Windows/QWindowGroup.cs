@@ -24,8 +24,15 @@ public class QWindowGroup {
                 window.Deactivate();
             }
         }
+       
 
-        QManager_Window.Instance.SetHeaderTextKey(w.Data.languageHeaderKey);
+
+        if (w.data.isTranslatable) {
+            QManager_Window.Instance.SetHeaderLocalizedText(w.Data.languageHeaderKey);
+        }
+        else {
+            QManager_Window.Instance.SetHeaderText(w.Data.languageHeaderKey);
+        }
         w.gameObject.SetActive(true);
     }
 }

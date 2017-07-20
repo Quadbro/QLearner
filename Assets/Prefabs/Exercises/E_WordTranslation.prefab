@@ -44,6 +44,7 @@ MonoBehaviour:
   subWindows: []
   data:
     languageHeaderKey: ex_name_wordtranslation
+    isTranslatable: 1
 --- !u!224 &224649723383582284
 RectTransform:
   m_ObjectHideFlags: 1

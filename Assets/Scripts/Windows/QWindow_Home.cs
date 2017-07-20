@@ -11,7 +11,7 @@ public class QWindow_Home : QWindow {
 
         // Create all windows and link to home page
         foreach (var prefab in subWindows) {
-            SpawnWindow(prefab);
+            SpawnWindow<QWindow>(prefab);
         }
 
         SpawnButtons();

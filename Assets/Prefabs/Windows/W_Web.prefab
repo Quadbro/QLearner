@@ -133,6 +133,7 @@ MonoBehaviour:
   subWindows: []
   data:
     languageHeaderKey: home_name_web
+    isTranslatable: 1
 --- !u!222 &222630174860822348
 CanvasRenderer:
   m_ObjectHideFlags: 1

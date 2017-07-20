@@ -161,6 +161,7 @@ MonoBehaviour:
   - {fileID: 1769859081203176, guid: 3e6be12d1c14ab44f82ff1d31da6397d, type: 2}
   data:
     languageHeaderKey: home_name_home
+    isTranslatable: 1
   prefab_Button_HomeItem: {fileID: 1550233655738026, guid: d640c4bc81cbb034f8f96d65c1172cfa,
     type: 2}
 --- !u!222 &222420313328995708

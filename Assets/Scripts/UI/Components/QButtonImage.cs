@@ -15,8 +15,6 @@ public class QButtonImage : Button {
         _colorScheme = QManager_Theme.Instance.CurrentScheme;
 
         targetGraphic.CrossFadeColor(_colorScheme.normal, textFadeDuration, true, true);
-
-        //targetGraphic.CrossFadeAlpha(0, textFadeDuration, true);
     }
 
     public override void OnPointerClick(PointerEventData eventData) {
@@ -27,19 +25,13 @@ public class QButtonImage : Button {
     public override void OnPointerExit(PointerEventData eventData) {
         base.OnPointerExit(eventData);
 
-
-
         targetGraphic.CrossFadeColor(_colorScheme.normal, textFadeDuration, true, true);
-
-        //targetGraphic.CrossFadeAlpha(0, textFadeDuration, true);
     }
 
     public override void OnPointerEnter(PointerEventData eventData) {
         base.OnPointerEnter(eventData);
 
         targetGraphic.CrossFadeColor(_colorScheme.highlight, textFadeDuration, true, true);
-        //targetGraphic.CrossFadeAlpha(0.5f, textFadeDuration, true);
-
     }
 
     public override void OnPointerDown(PointerEventData eventData) {
@@ -50,8 +42,6 @@ public class QButtonImage : Button {
 
     public override void OnPointerUp(PointerEventData eventData) {
         base.OnPointerUp(eventData);
-
-        targetGraphic.CrossFadeColor(_colorScheme.normal, textFadeDuration, true, true);
 
         if (currentSelectionState == SelectionState.Highlighted) {
             targetGraphic.CrossFadeColor(_colorScheme.highlight, textFadeDuration, true, true);

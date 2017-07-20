@@ -8,6 +8,7 @@ public class QWindow_Dictionary : QWindow {
     public GameObject prefab_InputField;
 
     public GameObject prefab_DictionaryItem;
+    public GameObject prefab_OpenedDictionaryWindow;
 
     private QInputFieldButton _dictAddnputField;
 
@@ -31,11 +32,20 @@ public class QWindow_Dictionary : QWindow {
 
     private void RespawnDictionaries() {
         containerContent.ClearAllChildren();
+        containerWindows.ClearAllChildren();
 
         for (var i = 0; i < QApp.Instance.User.dictionaries.Count; i++) {
             var dictionaryData = QApp.Instance.User.dictionaries[i];
             var dictButton = Create<QButtonText>(prefab_DictionaryItem, containerContent);
-            dictButton.Initialize(new QButtonData(null, () => { Debug.Log(dictionaryData.name); }));
+            dictButton.Initialize(new QButtonData(null, () => {
+
+                var dictWindow = SpawnWindow<QWindow_Dictionary_Open>(prefab_OpenedDictionaryWindow);
+                dictWindow.Data.languageHeaderKey = dictionaryData.name;
+                dictWindow.AwakeCycle();
+
+
+                dictWindow.Activate();
+            }));
 
             dictButton.SetTextStrict(string.Format("{0}) {1}", i+1, dictionaryData.name));
         }
@@ -62,11 +72,5 @@ public class QWindow_Dictionary : QWindow {
     }
 
     protected override void OnDeactivate() {
-    }
-
-    private QButtonText SpawnButton(QButtonData b, Transform parent, GameObject prefab) {
-        var btn = Create<QButtonText>(prefab, parent);
-        btn.Initialize(b);
-        return btn;
     }
 }

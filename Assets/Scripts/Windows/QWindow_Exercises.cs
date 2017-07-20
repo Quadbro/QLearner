@@ -42,7 +42,7 @@ public class QWindow_Exercises : QWindow {
         });
 
         foreach (var prefab in subWindows) {
-            SpawnWindow(prefab);
+            SpawnWindow<QWindow>(prefab);
         }
 
         foreach (var w in _windowGroup.windows) {
@@ -103,8 +103,8 @@ public class QWindow_Exercises : QWindow {
         var currentRow = SpawnNewLine();
 
         for (var i = 0; i < _windowGroup.windows.Count; i++) {
-            SpawnButton(new QButtonData(_windowGroup.windows[i].Data.languageHeaderKey, _windowGroup.windows[i].Activate), currentRow.transform);
-
+            var btn = Create<QButtonText>(prefab_Button_ExerciseItem, currentRow.transform);
+            btn.Initialize(new QButtonData(_windowGroup.windows[i].Data.languageHeaderKey, _windowGroup.windows[i].Activate));
             if ((i + 1) % rows == 0 && (i+1) != _windowGroup.windows.Count) {
                 currentRow = SpawnNewLine();
             }
@@ -117,12 +117,5 @@ public class QWindow_Exercises : QWindow {
         var go = Instantiate(linePrefab);
         go.transform.SetParent(containerContent.transform);
         return go.GetComponent<HorizontalLayoutGroup>();
-    }
-
-
-    private QButtonText SpawnButton(QButtonData b, Transform parent) {
-        var btn = Create<QButtonText>(prefab_Button_ExerciseItem, parent);
-        btn.Initialize(b);
-        return btn;
     }
 }
