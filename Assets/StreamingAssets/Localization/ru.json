@@ -41,8 +41,12 @@
             "value": "Упражнения"
         },
         {
-            "key": "home_name_dictionary",
+            "key": "home_name_dictionaries",
             "value": "Словари"
+        },
+        {
+            "key": "home_name_dictionary",
+            "value": "Словарь"
         },
         {
             "key": "home_name_web",
@@ -71,6 +75,14 @@
         {
             "key": "dictionary_add_btn_text",
             "value": "Создать"
+        },
+        {
+            "key": "exercise_select_dict_placeholder",
+            "value": "Выберите словарь"
+        },
+        {
+            "key": "exercise_select_dict_all",
+            "value": "Тренировать все слова"
         }
     ]
 }

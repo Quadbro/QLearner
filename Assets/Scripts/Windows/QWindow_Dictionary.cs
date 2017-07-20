@@ -13,7 +13,13 @@ public class QWindow_Dictionary : QWindow {
 
     protected override void OnAwake() {
         base.OnAwake();
+        _dictAddnputField = Create<QInputFieldButton>(prefab_InputField, scrollRect.transform);
+        _dictAddnputField.Btn.Initialize(new QButtonData(null, AddDictAction));
+        _dictAddnputField.KeyPlaceholder = "dictionary_add_placeholder";
 
+        var rt = _dictAddnputField.GetComponent<RectTransform>();
+        rt.offsetMin = new Vector2(0, -80);
+        rt.offsetMax = new Vector2(0, 0);
 
         RespawnDictionaries();
     }
@@ -26,17 +32,12 @@ public class QWindow_Dictionary : QWindow {
     private void RespawnDictionaries() {
         containerContent.ClearAllChildren();
 
-        _dictAddnputField = Create<QInputFieldButton>(prefab_InputField, containerContent);
-        _dictAddnputField.Btn.Initialize(new QButtonData(null, AddDictAction));
-        _dictAddnputField.KeyPlaceholder = "dictionary_add_placeholder";
-
-        foreach (var dictionaryData in QApp.Instance.User.dictionaries) {
+        for (var i = 0; i < QApp.Instance.User.dictionaries.Count; i++) {
+            var dictionaryData = QApp.Instance.User.dictionaries[i];
             var dictButton = Create<QButtonText>(prefab_DictionaryItem, containerContent);
-            dictButton.Initialize(new QButtonData(null, () => {
-                Debug.Log(dictionaryData.name);
-            }));
+            dictButton.Initialize(new QButtonData(null, () => { Debug.Log(dictionaryData.name); }));
 
-            dictButton.SetTextStrict(dictionaryData.name);
+            dictButton.SetTextStrict(string.Format("{0}) {1}", i+1, dictionaryData.name));
         }
 
         scrollRect.ScrollToTop();

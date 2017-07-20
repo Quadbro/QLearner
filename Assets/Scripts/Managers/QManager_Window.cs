@@ -34,8 +34,11 @@ public class QManager_Window : QManager<QManager_Window> {
 
 
     protected override void OnAwake() {
-
         transform.ClearAllChildren();
+
+
+        appHeader.color = QManager_Theme.Instance.CurrentScheme.highlight;
+        appHeader.isUpperCased = true;
 
         _mainWindow = Create<QWindow>(mainWindowPrefab, transform);
 
@@ -58,6 +61,7 @@ public class QManager_Window : QManager<QManager_Window> {
                 UserButtonAction();
             }
         }));
+
     }
 
     protected override void OnStart() {
@@ -68,6 +72,10 @@ public class QManager_Window : QManager<QManager_Window> {
     }
 
     protected override void OnUpdate() {
+    }
+
+    public void SetHeaderTextKey(string key) {
+        appHeader.Key = key;
     }
 
 }

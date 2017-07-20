@@ -5,6 +5,8 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class QLocalizedText : Text {
+    public bool isUpperCased;
+
     private string _key;
 
     public string Key {
@@ -26,7 +28,10 @@ public class QLocalizedText : Text {
 
     public void UpdateText() {
         if (!string.IsNullOrEmpty(_key)) {
-            text = QManager_Localization.Instance.GetLocalizedValue(_key);
+            var t = QManager_Localization.Instance.GetLocalizedValue(_key);
+
+                
+            text = isUpperCased ? t.ToUpper() : t;
         }
     }
 }

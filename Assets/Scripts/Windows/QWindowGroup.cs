@@ -25,7 +25,7 @@ public class QWindowGroup {
             }
         }
 
-        QManager_Window.Instance.appHeader.Key = w.Data.languageHeaderKey;
+        QManager_Window.Instance.SetHeaderTextKey(w.Data.languageHeaderKey);
         w.gameObject.SetActive(true);
     }
 }

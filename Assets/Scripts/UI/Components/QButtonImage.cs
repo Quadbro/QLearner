@@ -27,7 +27,10 @@ public class QButtonImage : Button {
     public override void OnPointerExit(PointerEventData eventData) {
         base.OnPointerExit(eventData);
 
+
+
         targetGraphic.CrossFadeColor(_colorScheme.normal, textFadeDuration, true, true);
+
         //targetGraphic.CrossFadeAlpha(0, textFadeDuration, true);
     }
 
@@ -49,5 +52,12 @@ public class QButtonImage : Button {
         base.OnPointerUp(eventData);
 
         targetGraphic.CrossFadeColor(_colorScheme.normal, textFadeDuration, true, true);
+
+        if (currentSelectionState == SelectionState.Highlighted) {
+            targetGraphic.CrossFadeColor(_colorScheme.highlight, textFadeDuration, true, true);
+        }
+        else {
+            targetGraphic.CrossFadeColor(_colorScheme.normal, textFadeDuration, true, true);
+        }
     }
 }

@@ -18,12 +18,28 @@ public class QWindow_Exercises : QWindow {
 
     private VerticalLayoutGroup _containerVGL;
     private RectTransform _containerRT;
+    private Dropdown _dropdownDict;
 
     protected override void OnAwake() {
         base.OnAwake();
         
         _containerVGL = containerContent.gameObject.GetRequiredComponent<VerticalLayoutGroup>();
         _containerRT = containerContent.gameObject.GetRequiredComponent<RectTransform>();
+
+        _dropdownDict = Create<Dropdown>(dropdownPrefab, scrollRect.transform);
+        var rt = _dropdownDict.GetComponent<RectTransform>();
+        rt.offsetMin = new Vector2(0, -80);
+        rt.offsetMax = new Vector2(0, 0);
+
+        _dropdownDict.onValueChanged.AddListener(index => {
+            Debug.Log("SelectedDict #" + (index + 1));
+
+            if (index > 0) {
+                _dropdownDict.captionText.text = string.Format("{0}: \"{1}\"",
+                    QManager_Localization.Instance.GetLocalizedValue("home_name_dictionary"),
+                    _dropdownDict.options[index].text);
+            }
+        });
 
         foreach (var prefab in subWindows) {
             SpawnWindow(prefab);
@@ -34,6 +50,7 @@ public class QWindow_Exercises : QWindow {
         }
 
         RespawnButtons();
+
     }
 
     protected override void OnStart() {
@@ -59,8 +76,18 @@ public class QWindow_Exercises : QWindow {
         
         containerContent.ClearAllChildren();
 
-        var dropGO = Instantiate(dropdownPrefab);
-        dropGO.transform.SetParent(containerContent.transform);
+
+        _dropdownDict.ClearOptions();
+
+        _dropdownDict.options.Add(new Dropdown.OptionData(QManager_Localization.Instance.GetLocalizedValue("exercise_select_dict_all")));
+        foreach (var dict in QApp.Instance.User.dictionaries) {
+            _dropdownDict.options.Add(new Dropdown.OptionData(dict.name));
+        }        
+        _dropdownDict.RefreshShownValue();
+
+        //_dropdownDict.value = 0;
+        //_dropdownDict.RefreshShownValue();
+
 
         var width = _containerRT.rect.width;
         var bOffset = (int)(width / _sidePaddingDivider);

@@ -41,8 +41,12 @@
             "value": "Exercises"
         },
         {
-            "key": "home_name_dictionary",
+            "key": "home_name_dictionaries",
             "value": "Dictionaries"
+        },
+        {
+            "key": "home_name_dictionary",
+            "value": "Dictionary"
         },
         {
             "key": "home_name_web",
@@ -71,6 +75,14 @@
         {
             "key": "dictionary_add_btn_text",
             "value": "Create"
+        },
+        {
+            "key": "exercise_select_dict_placeholder",
+            "value": "Choose dictionary"
+        },
+        {
+            "key": "exercise_select_dict_all",
+            "value": "Train all words"
         }
     ]
 }
