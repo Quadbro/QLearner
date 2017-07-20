@@ -51,6 +51,10 @@ public class QWindow_Dictionary : QWindow {
                     dictionaryData.words.Add(new WordData("House", new List<string> { "Дом", "Апартаменты" }));
 
                 }
+
+                foreach (var w in dictionaryData.words) {
+                    w.progress = Random.Range(0f, 1f);
+                }
                 dictWindow.AwakeCycle();
 
 

@@ -28,8 +28,12 @@ public class QWindow_Dictionary_Open : QWindow {
         foreach (var wordData in _selectedDictionary.words) {
             var wordLine = Create<QCG_WordLine>(prefab_WordLine, containerContent);
 
+            var hexColor = ColorUtility.ToHtmlStringRGBA(QManager_Theme.Instance.CurrentScheme.highlight);
+
             wordLine.ref_Toggle.isOn = false;
-            wordLine.ref_WordText.text = wordData.word + " - " + wordData.GetPrettyTranslations();
+            wordLine.ref_WordText.text = string.Format("<color=#{0}>{1}</color> - {2}", hexColor, wordData.word, wordData.GetPrettyTranslations());
+            wordLine.ref_ProgresImage.fillAmount = wordData.progress;
+            wordLine.ref_ProgresImage.color = QManager_Theme.Instance.CurrentScheme.highlight;
 
             var wdCopy = wordData;
             wordLine.ref_RemoveButton.Initialize(new QButtonData(null, () => {

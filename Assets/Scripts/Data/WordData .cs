@@ -5,21 +5,25 @@ using System.Collections.Generic;
 public class WordData {
 
     public string word;
+    public float progress;
     public List<string> translations;
 
     public WordData(string word) {
         this.word = word;
         translations = new List<string>();
+        progress = 0f;
     }
 
     public WordData(string word, string translation) {
         this.word = word;
         translations = new List<string>{ translation };
+        progress = 0f;
     }
 
     public WordData(string word, List<string> translations) {
         this.word = word;
         this.translations = translations;
+        progress = 0f;
     }
 
     public string GetPrettyTranslations() {
