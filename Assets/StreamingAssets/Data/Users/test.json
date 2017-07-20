@@ -5,7 +5,36 @@
     "dictionaries": [
         {
             "name": "TestDict",
-            "words": []
+            "words": [
+                {
+                    "word": "Cat",
+                    "translations": [
+                        "кошка",
+                        "кот"
+                    ]
+                },
+                {
+                    "word": "Car",
+                    "translations": [
+                        "Машина",
+                        "бублик",
+                        "мопед"
+                    ]
+                },
+                {
+                    "word": "Mother",
+                    "translations": [
+                        "Мама"
+                    ]
+                },
+                {
+                    "word": "House",
+                    "translations": [
+                        "Дом",
+                        "Апартаменты"
+                    ]
+                }
+            ]
         },
         {
             "name": "Кудлатые качели",

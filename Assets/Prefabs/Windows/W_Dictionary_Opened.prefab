@@ -151,6 +151,8 @@ MonoBehaviour:
   data:
     languageHeaderKey: 
     isTranslatable: 0
+  prefab_WordLine: {fileID: 1024337124217656, guid: e50ef97804a91434180688f8135a0fac,
+    type: 2}
 --- !u!114 &114678997176610774
 MonoBehaviour:
   m_ObjectHideFlags: 1

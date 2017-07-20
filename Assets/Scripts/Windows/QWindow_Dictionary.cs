@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine.UI;
 
 public class QWindow_Dictionary : QWindow {
@@ -41,6 +42,15 @@ public class QWindow_Dictionary : QWindow {
 
                 var dictWindow = SpawnWindow<QWindow_Dictionary_Open>(prefab_OpenedDictionaryWindow);
                 dictWindow.Data.languageHeaderKey = dictionaryData.name;
+                dictWindow.SelectedDictionary = dictionaryData;
+                if (dictionaryData.words.Count == 0) {
+                    dictionaryData.words.Add(new WordData("Dog", new List<string> {"Собака", "Друг"}));
+                    dictionaryData.words.Add(new WordData("Cat", new List<string> { "кошка", "кот" }));
+                    dictionaryData.words.Add(new WordData("Car", new List<string> { "Машина", "бублик", "мопед" }));
+                    dictionaryData.words.Add(new WordData("Mother", new List<string> { "Мама" }));
+                    dictionaryData.words.Add(new WordData("House", new List<string> { "Дом", "Апартаменты" }));
+
+                }
                 dictWindow.AwakeCycle();
 
 
