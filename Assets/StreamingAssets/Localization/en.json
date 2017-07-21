@@ -1,6 +1,26 @@
 {
     "items": [
         {
+            "key": "general_learn",
+            "value": "Learn" 
+        },
+        {
+            "key": "general_reset",
+            "value": "Reset" 
+        },
+        {
+            "key": "general_delete",
+            "value": "Delete" 
+        },
+        {
+            "key": "general_move",
+            "value": "Move" 
+        },
+        {
+            "key": "general_add",
+            "value": "Add"
+        },
+        {
             "key": "ex_name_listening",
             "value": "Listening"
         },

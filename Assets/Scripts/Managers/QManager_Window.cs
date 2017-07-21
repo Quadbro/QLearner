@@ -69,10 +69,15 @@ public class QManager_Window : QManager<QManager_Window> {
             }
         }));
 
+
+		QTooltip.Instance.AwakeCycle();
     }
 
     protected override void OnStart() {
+		QTooltip.Instance.StartCycle();
+
         _mainWindow.StartCycle();
+
         //_userWindow.StartCycle();
 
         _mainWindow.Activate();

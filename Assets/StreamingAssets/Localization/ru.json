@@ -1,5 +1,25 @@
 {
     "items": [
+    	{
+            "key": "general_learn",
+            "value": "Выучить" 
+        },
+        {
+            "key": "general_reset",
+            "value": "Сбросить" 
+        },
+    	{
+            "key": "general_delete",
+            "value": "Удалить" 
+        },
+        {
+            "key": "general_move",
+            "value": "Переместить" 
+        },
+    	{
+            "key": "general_add",
+            "value": "Добавить"
+        },
         {
             "key": "ex_name_listening",
             "value": "Аудирование"

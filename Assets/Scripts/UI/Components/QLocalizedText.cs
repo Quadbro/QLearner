@@ -34,6 +34,11 @@ public class QLocalizedText : Text {
             text = isUpperCased ? t.ToUpper() : t;
         }
     }
+
+	public void Clear() {
+		_key = null;
+		text = string.Empty;
+	}
 }
 
 public enum Language {

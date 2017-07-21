@@ -5,6 +5,7 @@ using System.Collections.Generic;
 public class QWindow_Dictionary_Open : QWindow {
 
     public GameObject prefab_WordLine;
+    public QCG_WordHeader headerRef;
 
     private List<QCG_WordLine> _wordLines;
 
@@ -16,12 +17,42 @@ public class QWindow_Dictionary_Open : QWindow {
     private DictionaryData _selectedDictionary;
 
 
+
     protected override void OnAwake() {
         base.OnAwake();
 
         if (_selectedDictionary == null) {
             return;
         }
+
+		headerRef.Initialize ();
+
+		headerRef.ref_TrainSelectedButton.Initialize (new QButtonData(null, () => {
+
+
+		}));
+
+		headerRef.ref_ClearSelectedButton.Initialize (new QButtonData(null, () => {
+
+
+		}));
+
+		headerRef.ref_DeleteSelectedButton.Initialize (new QButtonData(null, () => {
+
+
+		}));
+
+		headerRef.ref_MoveSelectedButton.Initialize (new QButtonData(null, () => {
+
+
+		}));
+
+		headerRef.ref_AddButton.Initialize (new QButtonData(null, () => {
+
+
+		}));
+
+
 
         _wordLines= new List<QCG_WordLine>();
 

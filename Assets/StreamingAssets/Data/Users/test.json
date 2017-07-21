@@ -8,6 +8,7 @@
             "words": [
                 {
                     "word": "Cat",
+                    "progress": 0.6297187805175781,
                     "translations": [
                         "кошка",
                         "кот"
@@ -15,6 +16,7 @@
                 },
                 {
                     "word": "Car",
+                    "progress": 0.4501890540122986,
                     "translations": [
                         "Машина",
                         "бублик",
@@ -23,12 +25,14 @@
                 },
                 {
                     "word": "Mother",
+                    "progress": 0.6561223268508911,
                     "translations": [
                         "Мама"
                     ]
                 },
                 {
                     "word": "House",
+                    "progress": 0.09780311584472656,
                     "translations": [
                         "Дом",
                         "Апартаменты"
@@ -42,7 +46,48 @@
         },
         {
             "name": "12312312111",
-            "words": []
+            "words": [
+                {
+                    "word": "Dog",
+                    "progress": 0.2569975256919861,
+                    "translations": [
+                        "Собака",
+                        "Друг"
+                    ]
+                },
+                {
+                    "word": "Cat",
+                    "progress": 0.7726789712905884,
+                    "translations": [
+                        "кошка",
+                        "кот"
+                    ]
+                },
+                {
+                    "word": "Car",
+                    "progress": 0.8169962167739868,
+                    "translations": [
+                        "Машина",
+                        "бублик",
+                        "мопед"
+                    ]
+                },
+                {
+                    "word": "Mother",
+                    "progress": 0.732413649559021,
+                    "translations": [
+                        "Мама"
+                    ]
+                },
+                {
+                    "word": "House",
+                    "progress": 0.0242156982421875,
+                    "translations": [
+                        "Дом",
+                        "Апартаменты"
+                    ]
+                }
+            ]
         },
         {
             "name": "5654",
@@ -78,6 +123,10 @@
         },
         {
             "name": "1",
+            "words": []
+        },
+        {
+            "name": "Катя лалка",
             "words": []
         }
     ],
