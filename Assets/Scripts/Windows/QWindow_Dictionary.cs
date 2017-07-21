@@ -52,9 +52,10 @@ public class QWindow_Dictionary : QWindow {
 
                 }
 
+				/*
                 foreach (var w in dictionaryData.words) {
                     w.progress = Random.Range(0f, 1f);
-                }
+                }*/
                 dictWindow.AwakeCycle();
 
 

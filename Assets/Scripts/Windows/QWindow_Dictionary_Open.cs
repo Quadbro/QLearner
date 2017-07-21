@@ -28,22 +28,39 @@ public class QWindow_Dictionary_Open : QWindow {
 		headerRef.Initialize ();
 
 		headerRef.ref_TrainSelectedButton.Initialize (new QButtonData(null, () => {
-
-
+			foreach (var line in _wordLines) {
+				if (line.ref_Toggle.isOn) {
+					line.WordDataRef.progress = 1f;
+					line.ref_ProgresImage.fillAmount = 1f;
+				}
+			}
 		}));
 
 		headerRef.ref_ClearSelectedButton.Initialize (new QButtonData(null, () => {
-
+			foreach (var line in _wordLines) {
+				if (line.ref_Toggle.isOn) {
+					line.WordDataRef.progress = 0f;
+					line.ref_ProgresImage.fillAmount = 0f;
+				}
+			}
 
 		}));
 
 		headerRef.ref_DeleteSelectedButton.Initialize (new QButtonData(null, () => {
-
+			foreach (var line in _wordLines) {
+				if (line.ref_Toggle.isOn) {
+					
+				}
+			}
 
 		}));
 
 		headerRef.ref_MoveSelectedButton.Initialize (new QButtonData(null, () => {
+			foreach (var line in _wordLines) {
+				if (line.ref_Toggle.isOn) {
 
+				}
+			}
 
 		}));
 
@@ -51,6 +68,13 @@ public class QWindow_Dictionary_Open : QWindow {
 
 
 		}));
+
+		// Select all toggle
+		headerRef.ref_Toggle.onValueChanged.AddListener ((value) => {
+			foreach (var line in _wordLines) {
+				line.ref_Toggle.isOn = value;
+			}
+		});
 
 
 
@@ -61,6 +85,7 @@ public class QWindow_Dictionary_Open : QWindow {
 
             var hexColor = ColorUtility.ToHtmlStringRGBA(QManager_Theme.Instance.CurrentScheme.highlight);
 
+			wordLine.WordDataRef = wordData;
             wordLine.ref_Toggle.isOn = false;
             wordLine.ref_WordText.text = string.Format("<color=#{0}>{1}</color> - {2}", hexColor, wordData.word, wordData.GetPrettyTranslations());
             wordLine.ref_ProgresImage.fillAmount = wordData.progress;

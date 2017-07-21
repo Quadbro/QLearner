@@ -9,4 +9,7 @@ public class QCG_WordLine : MonoBehaviour {
     public Toggle ref_Toggle;
     public Image ref_ProgresImage;
 
+
+	public WordData WordDataRef { get; set; }
+
 }
