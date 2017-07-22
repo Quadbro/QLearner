@@ -20,4 +20,14 @@ public class DictionaryData {
 	public void AddWord(string word, List<string> translations) {
 		words.Add(new WordData(word, translations));
 	}
+
+	public WordData CheckWord (string word) {
+		foreach (var w in words) {
+			if (String.Equals(word, w.word, StringComparison.OrdinalIgnoreCase)) {
+				return w;
+			}
+		}
+
+		return null;
+	}
 }

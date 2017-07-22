@@ -4490,7 +4490,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60da7c7fa9b7c0241ba452cf42a148dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  colorPalette: 3
+  colorPalette: 7
   colorSchemes:
   - paletteRef: 0
     normal: {r: 1, g: 1, b: 1, a: 1}

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 [Serializable]
 public class WordData {
@@ -25,6 +26,14 @@ public class WordData {
         this.translations = translations;
         progress = 0f;
     }
+
+	public void AddTranslations(List<string> translations) {
+		this.translations.AddRange (translations);
+	}
+
+	public void AddTranslationsRaw(List<string> translationsRaw) {
+		this.translations = this.translations.Union (translationsRaw, StringComparer.CurrentCultureIgnoreCase).ToList();
+	}
 
     public string GetPrettyTranslations() {
         var res = string.Empty;
