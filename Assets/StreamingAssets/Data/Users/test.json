@@ -8,7 +8,7 @@
             "words": [
                 {
                     "word": "Cat",
-                    "progress": 0.6297187805175781,
+                    "progress": 0.0,
                     "translations": [
                         "кошка",
                         "кот"
@@ -16,7 +16,7 @@
                 },
                 {
                     "word": "Car",
-                    "progress": 0.4501890540122986,
+                    "progress": 0.0,
                     "translations": [
                         "Машина",
                         "бублик",
@@ -25,14 +25,14 @@
                 },
                 {
                     "word": "Mother",
-                    "progress": 0.6561223268508911,
+                    "progress": 0.0,
                     "translations": [
                         "Мама"
                     ]
                 },
                 {
                     "word": "House",
-                    "progress": 0.09780311584472656,
+                    "progress": 0.0,
                     "translations": [
                         "Дом",
                         "Апартаменты"

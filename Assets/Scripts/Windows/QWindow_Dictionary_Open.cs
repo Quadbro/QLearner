@@ -31,6 +31,8 @@ public class QWindow_Dictionary_Open : QWindow {
 
 		headerRef.Initialize ();
 
+		headerRef.ref_Toggle.isOn = false;
+
 		headerRef.ref_TrainSelectedButton.Initialize (new QButtonData(null, () => {
 			if (_wordLines.Any(item => item.ref_Toggle.isOn)) {
 				ActionWithWords((QCG_WordLine line) => {
@@ -105,13 +107,7 @@ public class QWindow_Dictionary_Open : QWindow {
             wordLine.ref_WordText.text = string.Format("<color=#{0}>{1}</color> - {2}", hexColor, wordData.word, wordData.GetPrettyTranslations());
             wordLine.ref_ProgresImage.fillAmount = wordData.progress;
             wordLine.ref_ProgresImage.color = QManager_Theme.Instance.CurrentScheme.highlight;
-
-            var wdCopy = wordData;
-            wordLine.ref_RemoveButton.Initialize(new QButtonData(null, () => {
-                _selectedDictionary.words.Remove(wdCopy);
-                Destroy(wordLine.gameObject);
-            }));
-
+		
             _wordLines.Add(wordLine);
         }
     }
