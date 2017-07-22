@@ -42,19 +42,44 @@
         },
         {
             "name": "Кудлатые качели",
-            "words": []
+            "words": [
+                {
+                    "word": "Cat",
+                    "progress": 0.0,
+                    "translations": [
+                        "кошка",
+                        "кот"
+                    ]
+                },
+                {
+                    "word": "Car",
+                    "progress": 0.0,
+                    "translations": [
+                        "Машина",
+                        "бублик",
+                        "мопед"
+                    ]
+                },
+                {
+                    "word": "Mother",
+                    "progress": 0.0,
+                    "translations": [
+                        "Мама"
+                    ]
+                },
+                {
+                    "word": "House",
+                    "progress": 0.0,
+                    "translations": [
+                        "Дом",
+                        "Апартаменты"
+                    ]
+                }
+            ]
         },
         {
             "name": "12312312111",
             "words": [
-                {
-                    "word": "Dog",
-                    "progress": 0.2569975256919861,
-                    "translations": [
-                        "Собака",
-                        "Друг"
-                    ]
-                },
                 {
                     "word": "Cat",
                     "progress": 0.7726789712905884,
@@ -91,7 +116,48 @@
         },
         {
             "name": "5654",
-            "words": []
+            "words": [
+                {
+                    "word": "Dog",
+                    "progress": 0.0,
+                    "translations": [
+                        "Собака",
+                        "Друг"
+                    ]
+                },
+                {
+                    "word": "Cat",
+                    "progress": 0.0,
+                    "translations": [
+                        "кошка",
+                        "кот"
+                    ]
+                },
+                {
+                    "word": "Car",
+                    "progress": 0.0,
+                    "translations": [
+                        "Машина",
+                        "бублик",
+                        "мопед"
+                    ]
+                },
+                {
+                    "word": "Mother",
+                    "progress": 0.0,
+                    "translations": [
+                        "Мама"
+                    ]
+                },
+                {
+                    "word": "House",
+                    "progress": 0.0,
+                    "translations": [
+                        "Дом",
+                        "Апартаменты"
+                    ]
+                }
+            ]
         },
         {
             "name": "8562",
@@ -131,6 +197,6 @@
         }
     ],
     "settings": {
-        "interfaceLanguage": 1
+        "interfaceLanguage": 0
     }
 }

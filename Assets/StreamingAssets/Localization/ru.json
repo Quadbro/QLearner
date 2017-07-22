@@ -21,6 +21,22 @@
             "value": "Добавить"
         },
         {
+            "key": "dialog_btn_yes",
+            "value": "Да"
+        },
+        {
+            "key": "dialog_btn_no",
+            "value": "Нет"
+        },
+        {
+            "key": "dialog_confirm_delete_content",
+            "value": "Вы действительно хотите удалить?"
+        },
+        {
+            "key": "dialog_title_delete",
+            "value": "Удаление"
+        },
+        {
             "key": "ex_name_listening",
             "value": "Аудирование"
         },

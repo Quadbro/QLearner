@@ -37,6 +37,9 @@ public class QManager_Window : QManager<QManager_Window> {
     private QWindow _mainWindow;
     private QWindow _userWindow;
 
+	// Global windows
+	public QConformationDialog conformationDialog;
+
     private QWindow _currentWindowLink;
 
 
@@ -70,11 +73,11 @@ public class QManager_Window : QManager<QManager_Window> {
         }));
 
 
-		QTooltip.Instance.AwakeCycle();
+		conformationDialog.AwakeCycle();
     }
 
     protected override void OnStart() {
-		QTooltip.Instance.StartCycle();
+		conformationDialog.StartCycle();
 
         _mainWindow.StartCycle();
 

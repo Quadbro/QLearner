@@ -21,6 +21,22 @@
             "value": "Add"
         },
         {
+            "key": "dialog_btn_yes",
+            "value": "Yes"
+        },
+        {
+            "key": "dialog_btn_no",
+            "value": "No"
+        },
+        {
+            "key": "dialog_confirm_delete_content",
+            "value": "Are you shure you want to delete?"
+        },
+        {
+            "key": "dialog_title_delete",
+            "value": "Delete"
+        },
+        {
             "key": "ex_name_listening",
             "value": "Listening"
         },

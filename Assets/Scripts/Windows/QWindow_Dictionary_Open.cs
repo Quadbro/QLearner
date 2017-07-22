@@ -34,6 +34,7 @@ public class QWindow_Dictionary_Open : QWindow {
 					line.ref_ProgresImage.fillAmount = 1f;
 				}
 			}
+			QApp.Instance.SaveAppData();
 		}));
 
 		headerRef.ref_ClearSelectedButton.Initialize (new QButtonData(null, () => {
@@ -43,16 +44,21 @@ public class QWindow_Dictionary_Open : QWindow {
 					line.ref_ProgresImage.fillAmount = 0f;
 				}
 			}
-
+			QApp.Instance.SaveAppData();
 		}));
 
 		headerRef.ref_DeleteSelectedButton.Initialize (new QButtonData(null, () => {
-			foreach (var line in _wordLines) {
-				if (line.ref_Toggle.isOn) {
-					
+			QManager_Window.Instance.conformationDialog.Show("dialog_title_delete", "dialog_confirm_delete_content", () => {
+				foreach (var line in _wordLines) {
+					if (line.ref_Toggle.isOn) {
+						_selectedDictionary.words.Remove(line.WordDataRef);
+						Destroy(line.gameObject);
+					}
 				}
-			}
 
+				UpdateLines();
+				QApp.Instance.SaveAppData();
+			});
 		}));
 
 		headerRef.ref_MoveSelectedButton.Initialize (new QButtonData(null, () => {
@@ -120,4 +126,8 @@ public class QWindow_Dictionary_Open : QWindow {
 
         Destroy(gameObject);
     }
+
+	private void UpdateLines() {
+		_wordLines.RemoveAll(item => item == null);
+	}
 }

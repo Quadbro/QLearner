@@ -73,15 +73,4 @@ public class QButtonImage : Button {
 
 		//StopHover ();
     }
-
-
-
-	void StartHover(Vector3 position) {
-		if (toShowTooltip) {
-			QTooltip.Instance.ShowTooltip (tooltipTranslationKey, position);
-		}
-	}
-	void StopHover() {
-		QTooltip.Instance.HideTooltip();
-	}
 }

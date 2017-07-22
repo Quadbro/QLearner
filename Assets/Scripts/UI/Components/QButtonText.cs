@@ -56,21 +56,18 @@ public class QButtonText : Button {
         base.OnPointerExit(eventData);
         _text.CrossFadeColor(_colorScheme.normal, textFadeDuration, true, true);
 
-		StopHover();
     }
 
     public override void OnPointerEnter(PointerEventData eventData) {
         base.OnPointerEnter(eventData);
         _text.CrossFadeColor(_colorScheme.highlight, textFadeDuration, true, true);
 
-		StartHover(new Vector3(eventData.position.x, eventData.position.y - 18f, 0f));
     }
 
     public override void OnPointerDown(PointerEventData eventData) {
         base.OnPointerDown(eventData);
         _text.CrossFadeColor(_colorScheme.pressed, textFadeDuration, true, true);
 
-		StopHover();
     }
 
     public override void OnPointerUp(PointerEventData eventData) {
@@ -82,15 +79,6 @@ public class QButtonText : Button {
 			_text.CrossFadeColor (_colorScheme.normal, textFadeDuration, true, true);
 		}
 
-		StopHover ();
 	}
 
-	void StartHover(Vector3 position) {
-		if (toShowTooltip) {
-			QTooltip.Instance.ShowTooltip (tooltipTranslationKey, position);
-		}
-	}
-	void StopHover() {
-		QTooltip.Instance.HideTooltip();
-	}
 }
