@@ -58,11 +58,12 @@ public class QApp : QSingleton<QApp> {
 
         QManager_Localization.Instance.AwakeCycle();
         QManager_Window.Instance.AwakeCycle();
+		QManager_Dialog.Instance.AwakeCycle ();
     }
 
     protected override void OnStart() {
         QManager_Window.Instance.StartCycle();
-
+		QManager_Dialog.Instance.StartCycle ();
         ApplyLoadedData();
     }
 

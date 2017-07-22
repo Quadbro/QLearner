@@ -29,12 +29,20 @@
             "value": "No"
         },
         {
+            "key": "dialog_btn_ok",
+            "value": "Ok"
+        },
+        {
             "key": "dialog_confirm_delete_content",
             "value": "Are you shure you want to delete?"
         },
         {
             "key": "dialog_title_delete",
             "value": "Delete"
+        },
+        {
+            "key": "dialog_info_no_selection",
+            "value": "Please, select items for this action."
         },
         {
             "key": "ex_name_listening",

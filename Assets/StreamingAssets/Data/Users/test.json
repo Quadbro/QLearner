@@ -44,27 +44,12 @@
             "name": "Кудлатые качели",
             "words": [
                 {
-                    "word": "Cat",
-                    "progress": 0.0,
-                    "translations": [
-                        "кошка",
-                        "кот"
-                    ]
-                },
-                {
                     "word": "Car",
                     "progress": 0.0,
                     "translations": [
                         "Машина",
                         "бублик",
                         "мопед"
-                    ]
-                },
-                {
-                    "word": "Mother",
-                    "progress": 0.0,
-                    "translations": [
-                        "Мама"
                     ]
                 },
                 {
@@ -81,32 +66,8 @@
             "name": "12312312111",
             "words": [
                 {
-                    "word": "Cat",
-                    "progress": 0.7726789712905884,
-                    "translations": [
-                        "кошка",
-                        "кот"
-                    ]
-                },
-                {
-                    "word": "Car",
-                    "progress": 0.8169962167739868,
-                    "translations": [
-                        "Машина",
-                        "бублик",
-                        "мопед"
-                    ]
-                },
-                {
-                    "word": "Mother",
-                    "progress": 0.732413649559021,
-                    "translations": [
-                        "Мама"
-                    ]
-                },
-                {
                     "word": "House",
-                    "progress": 0.0242156982421875,
+                    "progress": 0.0,
                     "translations": [
                         "Дом",
                         "Апартаменты"

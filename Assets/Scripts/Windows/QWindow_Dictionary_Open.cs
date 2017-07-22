@@ -1,6 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Linq;
 using System.Collections.Generic;
+using System;
+
+public delegate void ActionWordline (QCG_WordLine line);
 
 public class QWindow_Dictionary_Open : QWindow {
 
@@ -28,44 +32,49 @@ public class QWindow_Dictionary_Open : QWindow {
 		headerRef.Initialize ();
 
 		headerRef.ref_TrainSelectedButton.Initialize (new QButtonData(null, () => {
-			foreach (var line in _wordLines) {
-				if (line.ref_Toggle.isOn) {
+			if (_wordLines.Any(item => item.ref_Toggle.isOn)) {
+				ActionWithWords((QCG_WordLine line) => {
 					line.WordDataRef.progress = 1f;
 					line.ref_ProgresImage.fillAmount = 1f;
-				}
+				});
+			} else {
+				QManager_Dialog.Instance.ShowInfo("dialog_info_no_selection");
 			}
-			QApp.Instance.SaveAppData();
 		}));
 
 		headerRef.ref_ClearSelectedButton.Initialize (new QButtonData(null, () => {
-			foreach (var line in _wordLines) {
-				if (line.ref_Toggle.isOn) {
+			if (_wordLines.Any(item => item.ref_Toggle.isOn)) {
+				ActionWithWords((QCG_WordLine line) => {
 					line.WordDataRef.progress = 0f;
 					line.ref_ProgresImage.fillAmount = 0f;
-				}
+				});
+			} else {
+				QManager_Dialog.Instance.ShowInfo("dialog_info_no_selection");
 			}
-			QApp.Instance.SaveAppData();
 		}));
 
 		headerRef.ref_DeleteSelectedButton.Initialize (new QButtonData(null, () => {
-			QManager_Window.Instance.conformationDialog.Show("dialog_title_delete", "dialog_confirm_delete_content", () => {
-				foreach (var line in _wordLines) {
-					if (line.ref_Toggle.isOn) {
+			if (_wordLines.Any(item => item.ref_Toggle.isOn)) {
+				QManager_Dialog.Instance.ShowConfirm("dialog_title_delete", "dialog_confirm_delete_content", () => {
+					ActionWithWords((QCG_WordLine line) => {
 						_selectedDictionary.words.Remove(line.WordDataRef);
 						Destroy(line.gameObject);
-					}
-				}
-
-				UpdateLines();
-				QApp.Instance.SaveAppData();
-			});
+					});
+				});
+			} else {
+				QManager_Dialog.Instance.ShowInfo("dialog_info_no_selection");
+			}
 		}));
 
 		headerRef.ref_MoveSelectedButton.Initialize (new QButtonData(null, () => {
-			foreach (var line in _wordLines) {
-				if (line.ref_Toggle.isOn) {
+			if (_wordLines.Any(item => item.ref_Toggle.isOn)) {
+				foreach (var line in _wordLines) {
+					if (line.ref_Toggle.isOn) {
 
+					}
 				}
+			} else {
+				QManager_Dialog.Instance.ShowInfo("dialog_info_no_selection");
 			}
 
 		}));
@@ -126,6 +135,25 @@ public class QWindow_Dictionary_Open : QWindow {
 
         Destroy(gameObject);
     }
+
+	private bool ActionWithWords(ActionWordline a) {
+		UpdateLines();
+
+		var changed = false;
+		foreach (var line in _wordLines) {
+			if (line != null) {
+				if (line.ref_Toggle.isOn) {
+					changed = true;
+					a (line);
+				}
+			}
+		}
+		if (changed) {
+			QApp.Instance.SaveAppData();
+		}
+
+		return changed;
+	}
 
 	private void UpdateLines() {
 		_wordLines.RemoveAll(item => item == null);
