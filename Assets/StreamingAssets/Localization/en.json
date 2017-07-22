@@ -21,6 +21,10 @@
             "value": "Add"
         },
         {
+            "key": "dialog_btn_cancel",
+            "value": "Cancel"
+        },
+        {
             "key": "dialog_btn_yes",
             "value": "Yes"
         },
@@ -43,6 +47,14 @@
         {
             "key": "dialog_info_no_selection",
             "value": "Please, select items for this action."
+        },
+        {
+            "key": "dialog_wordadd_word",
+            "value": "Enter word"
+        },
+        {
+            "key": "dialog_wordadd_translation",
+            "value": "Enter translations"
         },
         {
             "key": "ex_name_listening",

@@ -6,6 +6,7 @@ public class QManager_Dialog : QManager<QManager_Dialog> {
 
 	public GameObject prefab_DialogConfirm;
 	public GameObject prefab_DialogInfo;
+	public GameObject prefab_DialogWordAdd;
 
 	public Transform dialogContainer;
 
@@ -17,6 +18,11 @@ public class QManager_Dialog : QManager<QManager_Dialog> {
 	public void ShowConfirm (string keyHeader, string keyContent, Action actionYes = null, Action actionNo = null) {
 		var dialog = Create<QDialog_Confirm> (prefab_DialogConfirm, dialogContainer);
 		dialog.Initialize (keyHeader, keyContent, actionYes, actionNo);
+	}
+
+	public void ShowWordAdd (DictionaryData dict, Action actionAdd = null) {
+		var dialog = Create<QDialog_WordAdd> (prefab_DialogWordAdd, dialogContainer);
+		dialog.Initialize (dict, actionAdd);
 	}
 
 	protected override void OnAwake() {

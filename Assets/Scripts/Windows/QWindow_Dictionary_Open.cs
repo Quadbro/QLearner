@@ -59,6 +59,7 @@ public class QWindow_Dictionary_Open : QWindow {
 			if (_wordLines.Any(item => item.ref_Toggle.isOn)) {
 				QManager_Dialog.Instance.ShowConfirm("dialog_title_delete", "dialog_confirm_delete_content", () => {
 					ActionWithWords((QCG_WordLine line) => {
+						line.ref_Toggle.isOn = false;
 						_selectedDictionary.words.Remove(line.WordDataRef);
 						Destroy(line.gameObject);
 					});
@@ -82,8 +83,9 @@ public class QWindow_Dictionary_Open : QWindow {
 		}));
 
 		headerRef.ref_AddButton.Initialize (new QButtonData(null, () => {
-
-
+			QManager_Dialog.Instance.ShowWordAdd(_selectedDictionary, () => {
+				RespawnLines();
+			});
 		}));
 
 		// Select all toggle
@@ -94,22 +96,8 @@ public class QWindow_Dictionary_Open : QWindow {
 		});
 
 
-
-        _wordLines= new List<QCG_WordLine>();
-
-        foreach (var wordData in _selectedDictionary.words) {
-            var wordLine = Create<QCG_WordLine>(prefab_WordLine, containerContent);
-
-            var hexColor = ColorUtility.ToHtmlStringRGBA(QManager_Theme.Instance.CurrentScheme.highlight);
-
-			wordLine.WordDataRef = wordData;
-            wordLine.ref_Toggle.isOn = false;
-            wordLine.ref_WordText.text = string.Format("<color=#{0}>{1}</color> - {2}", hexColor, wordData.word, wordData.GetPrettyTranslations());
-            wordLine.ref_ProgresImage.fillAmount = wordData.progress;
-            wordLine.ref_ProgresImage.color = QManager_Theme.Instance.CurrentScheme.highlight;
-		
-            _wordLines.Add(wordLine);
-        }
+		RespawnLines ();
+        
     }
 
     protected override void OnStart() {
@@ -133,8 +121,6 @@ public class QWindow_Dictionary_Open : QWindow {
     }
 
 	private bool ActionWithWords(ActionWordline a) {
-		UpdateLines();
-
 		var changed = false;
 		foreach (var line in _wordLines) {
 			if (line != null) {
@@ -145,6 +131,7 @@ public class QWindow_Dictionary_Open : QWindow {
 			}
 		}
 		if (changed) {
+			UpdateLines ();
 			QApp.Instance.SaveAppData();
 		}
 
@@ -153,5 +140,25 @@ public class QWindow_Dictionary_Open : QWindow {
 
 	private void UpdateLines() {
 		_wordLines.RemoveAll(item => item == null);
+	}
+
+	private void RespawnLines() {
+		containerContent.ClearAllChildren ();
+
+		_wordLines= new List<QCG_WordLine>();
+
+		foreach (var wordData in _selectedDictionary.words) {
+			var wordLine = Create<QCG_WordLine>(prefab_WordLine, containerContent);
+
+			var hexColor = ColorUtility.ToHtmlStringRGBA(QManager_Theme.Instance.CurrentScheme.highlight);
+
+			wordLine.WordDataRef = wordData;
+			wordLine.ref_Toggle.isOn = false;
+			wordLine.ref_WordText.text = string.Format("<color=#{0}>{1}</color> - {2}", hexColor, wordData.word, wordData.GetPrettyTranslations());
+			wordLine.ref_ProgresImage.fillAmount = wordData.progress;
+			wordLine.ref_ProgresImage.color = QManager_Theme.Instance.CurrentScheme.highlight;
+
+			_wordLines.Add(wordLine);
+		}
 	}
 }

@@ -21,6 +21,10 @@
             "value": "Добавить"
         },
         {
+            "key": "dialog_btn_cancel",
+            "value": "Отмена"
+        },
+        {
             "key": "dialog_btn_yes",
             "value": "Да"
         },
@@ -43,6 +47,14 @@
         {
             "key": "dialog_info_no_selection",
             "value": "Пожалуйста, выберите елементы для совешения данного действия."
+        },
+        {
+			"key": "dialog_wordadd_word",
+            "value": "Введите слово"
+        },
+        {
+            "key": "dialog_wordadd_translation",
+            "value": "Введите перевод"
         },
         {
             "key": "ex_name_listening",
