@@ -1,14 +1,16 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System;
+using System.Collections.Generic;
 
 public class QManager_Dialog : QManager<QManager_Dialog> {
 
 	public GameObject prefab_DialogConfirm;
 	public GameObject prefab_DialogInfo;
 	public GameObject prefab_DialogWordAdd;
+    public GameObject prefab_DialogWordMove;
 
-	public Transform dialogContainer;
+    public Transform dialogContainer;
 
 	public void ShowInfo(string keyContent, Action action = null) {
 		var dialog = Create<QDialog_Info> (prefab_DialogInfo, dialogContainer);
@@ -25,7 +27,12 @@ public class QManager_Dialog : QManager<QManager_Dialog> {
 		dialog.Initialize (dict, actionAdd);
 	}
 
-	protected override void OnAwake() {
+    public void ShowWordMove(DictionaryData dict, List<WordData> wordsToTransfer, Action actionAdd = null) {
+        var dialog = Create<QDialog_WordMove>(prefab_DialogWordMove, dialogContainer);
+        dialog.Initialize(dict, wordsToTransfer, actionAdd);
+    }
+
+    protected override void OnAwake() {
 		dialogContainer.ClearAllChildren ();
 	}
 

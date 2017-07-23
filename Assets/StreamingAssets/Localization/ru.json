@@ -133,6 +133,10 @@
             "value": "Создать"
         },
         {
+            "key": "dictionary_words_learned_text",
+            "value": "Выучено"
+        },
+        {
             "key": "exercise_select_dict_placeholder",
             "value": "Выберите словарь"
         },

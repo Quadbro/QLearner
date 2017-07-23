@@ -9,6 +9,10 @@ public class WordData {
     public float progress;
     public List<string> translations;
 
+    public bool IsLearned {
+        get { return progress >= 1f; }
+    }
+
     public WordData(string word) {
         this.word = word;
         translations = new List<string>();
@@ -26,10 +30,6 @@ public class WordData {
         this.translations = translations;
         progress = 0f;
     }
-
-	public void AddTranslations(List<string> translations) {
-		this.translations.AddRange (translations);
-	}
 
 	public void AddTranslationsRaw(List<string> translationsRaw) {
 		this.translations = this.translations.Union (translationsRaw, StringComparer.CurrentCultureIgnoreCase).ToList();

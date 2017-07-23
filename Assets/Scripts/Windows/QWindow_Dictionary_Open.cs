@@ -35,18 +35,19 @@ public class QWindow_Dictionary_Open : QWindow {
 
 		headerRef.ref_TrainSelectedButton.Initialize (new QButtonData(null, () => {
 			if (_wordLines.Any(item => item.ref_Toggle.isOn)) {
-				ActionWithWords((QCG_WordLine line) => {
+				ActionWithWords(line => {
 					line.WordDataRef.progress = 1f;
 					line.ref_ProgresImage.fillAmount = 1f;
 				});
 			} else {
 				QManager_Dialog.Instance.ShowInfo("dialog_info_no_selection");
 			}
+
 		}));
 
 		headerRef.ref_ClearSelectedButton.Initialize (new QButtonData(null, () => {
 			if (_wordLines.Any(item => item.ref_Toggle.isOn)) {
-				ActionWithWords((QCG_WordLine line) => {
+				ActionWithWords(line => {
 					line.WordDataRef.progress = 0f;
 					line.ref_ProgresImage.fillAmount = 0f;
 				});
@@ -58,9 +59,9 @@ public class QWindow_Dictionary_Open : QWindow {
 		headerRef.ref_DeleteSelectedButton.Initialize (new QButtonData(null, () => {
 			if (_wordLines.Any(item => item.ref_Toggle.isOn)) {
 				QManager_Dialog.Instance.ShowConfirm("dialog_title_delete", "dialog_confirm_delete_content", () => {
-					ActionWithWords((QCG_WordLine line) => {
+					ActionWithWords(line => {
 						line.ref_Toggle.isOn = false;
-						_selectedDictionary.words.Remove(line.WordDataRef);
+						_selectedDictionary.RemoveWord(line.WordDataRef);
 						Destroy(line.gameObject);
 					});
 				});
@@ -71,11 +72,10 @@ public class QWindow_Dictionary_Open : QWindow {
 
 		headerRef.ref_MoveSelectedButton.Initialize (new QButtonData(null, () => {
 			if (_wordLines.Any(item => item.ref_Toggle.isOn)) {
-				foreach (var line in _wordLines) {
-					if (line.ref_Toggle.isOn) {
+			    var selected = (from line in _wordLines where line.ref_Toggle.isOn select line.WordDataRef).ToList();
 
-					}
-				}
+			    QManager_Dialog.Instance.ShowWordMove(_selectedDictionary, selected, RespawnLines);
+
 			} else {
 				QManager_Dialog.Instance.ShowInfo("dialog_info_no_selection");
 			}
@@ -83,9 +83,7 @@ public class QWindow_Dictionary_Open : QWindow {
 		}));
 
 		headerRef.ref_AddButton.Initialize (new QButtonData(null, () => {
-			QManager_Dialog.Instance.ShowWordAdd(_selectedDictionary, () => {
-				RespawnLines();
-			});
+			QManager_Dialog.Instance.ShowWordAdd(_selectedDictionary, RespawnLines);
 		}));
 
 		// Select all toggle
@@ -131,7 +129,8 @@ public class QWindow_Dictionary_Open : QWindow {
 			}
 		}
 		if (changed) {
-			UpdateLines ();
+		    headerRef.ref_Toggle.isOn = false;
+            UpdateLines();
 			QApp.Instance.SaveAppData();
 		}
 
@@ -147,7 +146,7 @@ public class QWindow_Dictionary_Open : QWindow {
 
 		_wordLines= new List<QCG_WordLine>();
 
-		foreach (var wordData in _selectedDictionary.words) {
+		foreach (var wordData in _selectedDictionary.Words) {
 			var wordLine = Create<QCG_WordLine>(prefab_WordLine, containerContent);
 
 			var hexColor = ColorUtility.ToHtmlStringRGBA(QManager_Theme.Instance.CurrentScheme.highlight);

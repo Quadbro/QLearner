@@ -24,6 +24,10 @@ public class UserData {
     public void CreateDictionary(string name) {
         dictionaries.Add(new DictionaryData(name));
     }
+
+    public void RemoveDictionary(DictionaryData dict) {
+        dictionaries.Remove(dict);
+    }
 }
 
 

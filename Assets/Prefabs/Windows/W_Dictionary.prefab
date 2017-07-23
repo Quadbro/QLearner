@@ -2565,7 +2565,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8e38a51f6659944b9db29959757cf16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ref_RemoveButton: {fileID: 114541394536722060}
   ref_WordText: {fileID: 114979518084531430}
   ref_Toggle: {fileID: 114162535856393066}
   ref_ProgresImage: {fileID: 114057421512317414}
@@ -3327,7 +3326,7 @@ MonoBehaviour:
   scrollRect: {fileID: 114931279040285206}
   prefab_InputField: {fileID: 1146831917698808, guid: ac85a4f0b8211384b80c29c325586b1f,
     type: 2}
-  prefab_DictionaryItem: {fileID: 1939239284559938, guid: 46255c9f079ad544ba1e070f824e499b,
+  prefab_DictionaryItem: {fileID: 1451096833767324, guid: f207a23c9f0f2384281ee6eb6e08ab57,
     type: 2}
   prefab_OpenedDictionaryWindow: {fileID: 1861454269159356, guid: 65be901d45beb5246ac2e5a6c002570a,
     type: 2}
@@ -3423,7 +3422,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8e38a51f6659944b9db29959757cf16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ref_RemoveButton: {fileID: 114673468396462716}
   ref_WordText: {fileID: 114976520971964952}
   ref_Toggle: {fileID: 114571053411399486}
   ref_ProgresImage: {fileID: 114151713718126970}
@@ -4369,7 +4367,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8e38a51f6659944b9db29959757cf16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ref_RemoveButton: {fileID: 114783292877478918}
   ref_WordText: {fileID: 114178796448443932}
   ref_Toggle: {fileID: 114685379467235776}
   ref_ProgresImage: {fileID: 114168859957689162}
@@ -4384,7 +4381,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8e38a51f6659944b9db29959757cf16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ref_RemoveButton: {fileID: 114773870924063786}
   ref_WordText: {fileID: 114501234610502318}
   ref_Toggle: {fileID: 114716832988458404}
   ref_ProgresImage: {fileID: 114051705368641476}
@@ -5280,7 +5276,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8e38a51f6659944b9db29959757cf16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ref_RemoveButton: {fileID: 114012121208640530}
   ref_WordText: {fileID: 114310619441793458}
   ref_Toggle: {fileID: 114968932651797924}
   ref_ProgresImage: {fileID: 114981696475016230}

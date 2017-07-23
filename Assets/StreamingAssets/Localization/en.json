@@ -133,6 +133,10 @@
             "value": "Create"
         },
         {
+            "key": "dictionary_words_learned_text",
+            "value": "Learned"
+        },
+        {
             "key": "exercise_select_dict_placeholder",
             "value": "Choose dictionary"
         },

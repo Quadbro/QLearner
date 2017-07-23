@@ -5,43 +5,30 @@
     "dictionaries": [
         {
             "name": "TestDict",
-            "words": [
+            "_words": []
+        },
+        {
+            "name": "5654",
+            "_words": [
+                {
+                    "word": "Dog",
+                    "progress": 1.0,
+                    "translations": [
+                        "Собака",
+                        "Друг"
+                    ]
+                },
                 {
                     "word": "Cat",
                     "progress": 1.0,
                     "translations": [
-                        "Кот",
-                        "Корабль",
-                        "Лось"
+                        "кошка",
+                        "кот"
                     ]
                 },
                 {
                     "word": "Car",
-                    "progress": 0.0,
-                    "translations": [
-                        "Машина",
-                        "Лось",
-                        "Мама",
-                        "вылтацытпаолдвцтп"
-                    ]
-                },
-                {
-                    "word": "Door",
-                    "progress": 0.0,
-                    "translations": [
-                        "Дверь",
-                        "космос",
-                        "нога"
-                    ]
-                }
-            ]
-        },
-        {
-            "name": "Кудлатые качели",
-            "words": [
-                {
-                    "word": "Car",
-                    "progress": 0.0,
+                    "progress": 1.0,
                     "translations": [
                         "Машина",
                         "бублик",
@@ -49,21 +36,15 @@
                     ]
                 },
                 {
-                    "word": "House",
-                    "progress": 0.0,
+                    "word": "Mother",
+                    "progress": 1.0,
                     "translations": [
-                        "Дом",
-                        "Апартаменты"
+                        "Мама"
                     ]
-                }
-            ]
-        },
-        {
-            "name": "12312312111",
-            "words": [
+                },
                 {
                     "word": "House",
-                    "progress": 0.0,
+                    "progress": 1.0,
                     "translations": [
                         "Дом",
                         "Апартаменты"
@@ -72,8 +53,8 @@
             ]
         },
         {
-            "name": "5654",
-            "words": [
+            "name": "5",
+            "_words": [
                 {
                     "word": "Dog",
                     "progress": 0.0,
@@ -113,44 +94,15 @@
                         "Дом",
                         "Апартаменты"
                     ]
+                },
+                {
+                    "word": "Lol",
+                    "progress": 0.0,
+                    "translations": [
+                        "лол"
+                    ]
                 }
             ]
-        },
-        {
-            "name": "8562",
-            "words": []
-        },
-        {
-            "name": "748125",
-            "words": []
-        },
-        {
-            "name": "9998877",
-            "words": []
-        },
-        {
-            "name": "124578787878",
-            "words": []
-        },
-        {
-            "name": "';';';';';';",
-            "words": []
-        },
-        {
-            "name": "dict n 6",
-            "words": []
-        },
-        {
-            "name": "dfdsf",
-            "words": []
-        },
-        {
-            "name": "1",
-            "words": []
-        },
-        {
-            "name": "Катя лалка",
-            "words": []
         }
     ],
     "settings": {

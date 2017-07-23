@@ -22,27 +22,19 @@ public class QDialog_WordAdd : QDialog {
 			}
 
 
-			var input_word = PolishInput(inputWord.text);
-			var input_translations = PolishInput(inputTranslations.text);
-
-			var rawTranslations = inputTranslations.text.Split(new string[] { Environment.NewLine }, StringSplitOptions.None);
+			var input_word = inputWord.text.TrimAndNormalize();
+			var rawTranslations = inputTranslations.text.Split(new [] { Environment.NewLine }, StringSplitOptions.None);
 			var translations = new List<string>();
 
 			foreach (var tr in rawTranslations) {
-				translations.Add(PolishInput(tr));
+				translations.Add(tr.TrimAndNormalize());
 			}
 
 			// No need to add without translation
 			if (translations.Count > 0) {
 
-				// Check if we already have such word
-				var checkWord = dict.CheckWord(input_word);
-
-				if (checkWord != null) {
-					checkWord.AddTranslationsRaw(translations);
-				} else {
-					dict.AddWord(input_word, translations);
-				}
+                // Try add this word to dict (all cases handled by data class)
+                dict.MergeWord(new WordData(input_word, translations));
 
 				if (actionAdd != null) {
 					actionAdd();
@@ -60,9 +52,7 @@ public class QDialog_WordAdd : QDialog {
 	}
 
 
-	private string PolishInput(string input) {
-		return System.Text.RegularExpressions.Regex.Replace(input.Trim(), @"\s+", " ");
-	}
+	
 
 }
 

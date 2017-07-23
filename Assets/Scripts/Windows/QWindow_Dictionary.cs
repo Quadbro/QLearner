@@ -16,14 +16,25 @@ public class QWindow_Dictionary : QWindow {
     protected override void OnAwake() {
         base.OnAwake();
         _dictAddnputField = Create<QInputFieldButton>(prefab_InputField, scrollRect.transform);
-        _dictAddnputField.Btn.Initialize(new QButtonData(null, AddDictAction));
+        _dictAddnputField.Btn.Initialize(new QButtonData(null, () => {
+            var text = _dictAddnputField.text;
+
+            if (!string.IsNullOrEmpty(text)) {
+                QApp.Instance.User.CreateDictionary(text);
+                QApp.Instance.SaveAppData(); 
+
+                RespawnDictionaries();
+            }
+
+            _dictAddnputField.text = string.Empty;
+        }));
         _dictAddnputField.KeyPlaceholder = "dictionary_add_placeholder";
 
         var rt = _dictAddnputField.GetComponent<RectTransform>();
         rt.offsetMin = new Vector2(0, -80);
         rt.offsetMax = new Vector2(0, 0);
 
-        RespawnDictionaries();
+        //RespawnDictionaries();
     }
 
     protected override void OnStart() {
@@ -37,18 +48,19 @@ public class QWindow_Dictionary : QWindow {
 
         for (var i = 0; i < QApp.Instance.User.dictionaries.Count; i++) {
             var dictionaryData = QApp.Instance.User.dictionaries[i];
-            var dictButton = Create<QButtonText>(prefab_DictionaryItem, containerContent);
-            dictButton.Initialize(new QButtonData(null, () => {
+            var dictLine = Create<QCG_DictionaryLine>(prefab_DictionaryItem, containerContent);
+
+            dictLine.ref_DictionaryButton.Initialize(new QButtonData(null, () => {
 
                 var dictWindow = SpawnWindow<QWindow_Dictionary_Open>(prefab_OpenedDictionaryWindow);
                 dictWindow.Data.languageHeaderKey = dictionaryData.name;
                 dictWindow.SelectedDictionary = dictionaryData;
-                if (dictionaryData.words.Count == 0) {
-                    dictionaryData.words.Add(new WordData("Dog", new List<string> {"Собака", "Друг"}));
-                    dictionaryData.words.Add(new WordData("Cat", new List<string> { "кошка", "кот" }));
-                    dictionaryData.words.Add(new WordData("Car", new List<string> { "Машина", "бублик", "мопед" }));
-                    dictionaryData.words.Add(new WordData("Mother", new List<string> { "Мама" }));
-                    dictionaryData.words.Add(new WordData("House", new List<string> { "Дом", "Апартаменты" }));
+                if (dictionaryData.GetWordsCount() == 0) {
+                    dictionaryData.AddWord(new WordData("Dog", new List<string> {"Собака", "Друг"}));
+                    dictionaryData.AddWord(new WordData("Cat", new List<string> { "кошка", "кот" }));
+                    dictionaryData.AddWord(new WordData("Car", new List<string> { "Машина", "бублик", "мопед" }));
+                    dictionaryData.AddWord(new WordData("Mother", new List<string> { "Мама" }));
+                    dictionaryData.AddWord(new WordData("House", new List<string> { "Дом", "Апартаменты" }));
 
                 }
 
@@ -62,28 +74,35 @@ public class QWindow_Dictionary : QWindow {
                 dictWindow.Activate();
             }));
 
-            dictButton.SetTextStrict(string.Format("{0}) {1}", i+1, dictionaryData.name));
+            dictLine.ref_DeleteButton.Initialize(new QButtonData(null, () => { 
+                QManager_Dialog.Instance.ShowConfirm("dialog_title_delete", "dialog_confirm_delete_content", () => {
+                    QApp.Instance.User.RemoveDictionary(dictionaryData);
+                    Destroy(dictLine.gameObject);
+                    QApp.Instance.SaveAppData();
+                });
+            }));
+
+
+            dictLine.ref_WordNameText.text = dictionaryData.name;
+
+            dictLine.ref_WordsLeftText.text = string.Format("{0}:\n{1}/{2}",
+                QManager_Localization.Instance.GetLocalizedValue("dictionary_words_learned_text"),
+                dictionaryData.GetLearnedWordsCount(),
+                dictionaryData.GetWordsCount());
+
+            //dictLine.ref_DictionaryButton.SetTextStrict();
+
         }
 
         scrollRect.ScrollToTop();
 
     }
 
-    private void AddDictAction() {
-        var text = _dictAddnputField.text;
-
-        if (!string.IsNullOrEmpty(text)) {
-            QApp.Instance.User.CreateDictionary(text);
-            QApp.Instance.SaveAppData();;
-
-            RespawnDictionaries();
-        }
-    }
-
     protected override void OnUpdate() {
     }
 
     protected override void OnActivate() {
+        RespawnDictionaries();
     }
 
     protected override void OnDeactivate() {
