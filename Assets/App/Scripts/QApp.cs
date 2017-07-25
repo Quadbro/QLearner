@@ -56,6 +56,8 @@ public class QApp : QSingleton<QApp> {
 
         LoadAppData();
 
+
+        QManager_Database.Instance.AwakeCycle();
         QManager_Localization.Instance.AwakeCycle();
         QManager_Window.Instance.AwakeCycle();
 		QManager_Dialog.Instance.AwakeCycle ();
@@ -64,6 +66,8 @@ public class QApp : QSingleton<QApp> {
     protected override void OnStart() {
         QManager_Window.Instance.StartCycle();
 		QManager_Dialog.Instance.StartCycle ();
+        QManager_Database.Instance.StartCycle();
+
         ApplyLoadedData();
     }
 

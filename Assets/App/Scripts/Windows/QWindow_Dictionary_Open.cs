@@ -63,7 +63,8 @@ public class QWindow_Dictionary_Open : QWindow {
 						line.ref_Toggle.isOn = false;
 						_selectedDictionary.RemoveWord(line.WordDataRef);
 						Destroy(line.gameObject);
-					});
+                        headerRef.ref_Toggle.isOn = false;
+                    });
 				});
 			} else {
 				QManager_Dialog.Instance.ShowInfo("dialog_info_no_selection");
@@ -118,6 +119,8 @@ public class QWindow_Dictionary_Open : QWindow {
         Destroy(gameObject);
     }
 
+    // -----------------------------------------------------------------------------------------------------------------------
+
 	private bool ActionWithWords(ActionWordline a) {
 		var changed = false;
 		foreach (var line in _wordLines) {
@@ -129,7 +132,7 @@ public class QWindow_Dictionary_Open : QWindow {
 			}
 		}
 		if (changed) {
-		    headerRef.ref_Toggle.isOn = false;
+
             UpdateLines();
 			QApp.Instance.SaveAppData();
 		}

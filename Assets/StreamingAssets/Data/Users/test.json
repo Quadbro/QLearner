@@ -5,55 +5,6 @@
     "dictionaries": [
         {
             "name": "TestDict",
-            "_words": []
-        },
-        {
-            "name": "5654",
-            "_words": [
-                {
-                    "word": "Dog",
-                    "progress": 1.0,
-                    "translations": [
-                        "Собака",
-                        "Друг"
-                    ]
-                },
-                {
-                    "word": "Cat",
-                    "progress": 1.0,
-                    "translations": [
-                        "кошка",
-                        "кот"
-                    ]
-                },
-                {
-                    "word": "Car",
-                    "progress": 1.0,
-                    "translations": [
-                        "Машина",
-                        "бублик",
-                        "мопед"
-                    ]
-                },
-                {
-                    "word": "Mother",
-                    "progress": 1.0,
-                    "translations": [
-                        "Мама"
-                    ]
-                },
-                {
-                    "word": "House",
-                    "progress": 1.0,
-                    "translations": [
-                        "Дом",
-                        "Апартаменты"
-                    ]
-                }
-            ]
-        },
-        {
-            "name": "5",
             "_words": [
                 {
                     "word": "Dog",
@@ -103,6 +54,55 @@
                     ]
                 }
             ]
+        },
+        {
+            "name": "5654",
+            "_words": [
+                {
+                    "word": "Dog",
+                    "progress": 1.0,
+                    "translations": [
+                        "Собака",
+                        "Друг"
+                    ]
+                },
+                {
+                    "word": "Cat",
+                    "progress": 1.0,
+                    "translations": [
+                        "кошка",
+                        "кот"
+                    ]
+                },
+                {
+                    "word": "Car",
+                    "progress": 1.0,
+                    "translations": [
+                        "Машина",
+                        "бублик",
+                        "мопед"
+                    ]
+                },
+                {
+                    "word": "Mother",
+                    "progress": 1.0,
+                    "translations": [
+                        "Мама"
+                    ]
+                },
+                {
+                    "word": "House",
+                    "progress": 1.0,
+                    "translations": [
+                        "Дом",
+                        "Апартаменты"
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "5",
+            "_words": []
         }
     ],
     "settings": {
